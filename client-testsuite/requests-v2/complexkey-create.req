@@ -1,0 +1,16 @@
+POST /complexkey HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+X-RestLi-Method: create
+X-RestLi-Protocol-Version: 2.0.0
+
+{
+  "message" : {
+    "message" : "test message"
+  },
+  "key" : {
+    "part1" : "one",
+    "part2" : 2,
+    "part3" : "APPLE"
+  }
+}

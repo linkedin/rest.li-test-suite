@@ -1,0 +1,8 @@
+{
+  "type" : "record",
+  "name" : "RecordWithNamespaceOverride",
+  "namespace" : "namespace1",
+  "fields" : [
+    { "name" : "overridden", "type" : { "type" : "fixed", "name" : "OverriddenFixed", "namespace" : "namespace2", "size" : 32 } }
+  ]
+}

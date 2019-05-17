@@ -1,0 +1,11 @@
+{
+  "arrayOfMaps": { "arrayOfMaps": [ { "one": 1, "two": 2}, { "three": 3, "four": 4 } ] },
+  "mapOfInts": { "mapOfInts": { "one": 1, "two": 2} },
+  "mapWithProps": {"mapWithProps": { "three": 3, "four": 4 } },
+  "recordWithProps": { "integer": 5 },
+  "unionOfComplexTypes": { "complexTypeUnion": { "testsuite.Fruits": "ORANGE"} },
+  "unionOfPrimitives": { "primitivesUnion": {"int": 5} },
+  "anotherUnionOfComplexTypes": { "complexTypeUnion": { "testsuite.Fruits": "APPLE"} },
+  "unionOfSameTypes": { "sameTypesUnion" : { "greeting" : "Hello" }, "unionWithArrayMembers" : { "fruitArray": [ "ORANGE", "APPLE" ] },
+    "unionWithMapMembers" : {"intMap": {"one": 1, "two": 2 } } }
+}

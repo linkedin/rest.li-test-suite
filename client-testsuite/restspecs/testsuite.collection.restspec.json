@@ -1,0 +1,83 @@
+{
+  "name" : "collection",
+  "namespace" : "testsuite",
+  "path" : "/collection",
+  "schema" : "testsuite.Message",
+  "doc" : "generated from: testsuite.CollectionResource",
+  "collection" : {
+    "identifier" : {
+      "name" : "collectionId",
+      "type" : "long"
+    },
+    "supports" : [ "batch_create", "batch_delete", "batch_get", "batch_partial_update", "batch_update", "create", "delete", "get", "partial_update", "update" ],
+    "methods" : [ {
+      "method" : "create"
+    }, {
+      "method" : "get"
+    }, {
+      "method" : "update"
+    }, {
+      "method" : "partial_update"
+    }, {
+      "method" : "delete"
+    }, {
+      "method" : "batch_create"
+    }, {
+      "method" : "batch_get"
+    }, {
+      "method" : "batch_update"
+    }, {
+      "method" : "batch_partial_update"
+    }, {
+      "method" : "batch_delete"
+    } ],
+    "finders" : [ {
+      "name" : "search",
+      "parameters" : [ {
+        "name" : "keyword",
+        "type" : "string"
+      } ],
+      "metadata" : {
+        "type" : "testsuite.Optionals"
+      }
+    } ],
+    "entity" : {
+      "path" : "/collection/{collectionId}",
+      "subresources" : [ {
+        "name" : "subcollection",
+        "namespace" : "testsuite.collectionsubresources",
+        "path" : "/collection/{collectionId}/subcollection",
+        "schema" : "testsuite.Message",
+        "doc" : "generated from: testsuite.collectionsubresources.CollectionSubResource",
+        "collection" : {
+          "identifier" : {
+            "name" : "subcollectionId",
+            "type" : "long"
+          },
+          "supports" : [ "get" ],
+          "methods" : [ {
+            "method" : "get"
+          } ],
+          "entity" : {
+            "path" : "/collection/{collectionId}/subcollection/{subcollectionId}"
+          }
+        }
+      }, {
+        "name" : "subsimple",
+        "namespace" : "testsuite.collectionsubresources",
+        "path" : "/collection/{collectionId}/subsimple",
+        "schema" : "testsuite.Message",
+        "doc" : "generated from: testsuite.collectionsubresources.SimpleSubResource",
+        "simple" : {
+          "supports" : [ "get" ],
+          "methods" : [ {
+            "method" : "get"
+          } ],
+          "entity" : {
+            "path" : "/collection/{collectionId}/subsimple"
+          }
+        }
+      } ]
+    }
+  }
+}

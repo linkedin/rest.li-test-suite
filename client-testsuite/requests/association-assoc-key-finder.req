@@ -1,0 +1,5 @@
+GET /association/part1=one?q=part1 HTTP/1.1
+Accept: application/json
+X-RestLi-Protocol-Version: 1.0.0
+
+

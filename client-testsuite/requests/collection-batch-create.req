@@ -1,0 +1,13 @@
+POST /collection HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+X-RestLi-Method: batch_create
+X-RestLi-Protocol-Version: 1.0.0
+
+{
+  "elements" : [ {
+    "message" : "test message"
+  }, {
+    "message" : "another message"
+  } ]
+}

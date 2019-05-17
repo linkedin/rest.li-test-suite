@@ -1,0 +1,4 @@
+{
+  "include": { "integer": 10, "f1": 1.2 },
+  "includeWithInclude": { "integer": 10, "f1": 1.2, "j1": 2.3 }
+}

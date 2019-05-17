@@ -1,0 +1,9 @@
+{
+  "type" : "record",
+  "name" : "Include",
+  "namespace": "testsuite",
+  "include" : [ "PrimitiveField" ],
+  "fields" : [
+    { "name" : "f1", "type" : "double" }
+  ]
+}

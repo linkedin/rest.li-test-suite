@@ -1,0 +1,62 @@
+{
+  "type": "record",
+  "name": "UnionOfSameTypes",
+  "namespace": "testsuite",
+  "fields": [
+    {
+      "name": "sameTypesUnion",
+      "type": [
+        {
+          "type": "string",
+          "alias": "greeting"
+        },
+        {
+          "type": {
+            "type": "typeref",
+            "name": "closingRef",
+            "ref": "string"
+          },
+          "alias": "closing"
+        }
+      ]
+    },
+    {
+      "name" : "unionWithArrayMembers",
+      "type": [
+        {
+          "type": {
+            "type": "array",
+            "items": "Fruits"
+          },
+          "alias": "fruitArray"
+        },
+        {
+          "type": {
+            "type": "array",
+            "items": "int"
+          },
+          "alias": "intArray"
+        }
+      ]
+    },
+    {
+      "name" : "unionWithMapMembers",
+      "type": [
+        {
+          "type": {
+            "type": "map",
+            "values": "string"
+          },
+          "alias": "stringMap"
+        },
+        {
+          "type": {
+            "type": "map",
+            "values": "int"
+          },
+          "alias": "intMap"
+        }
+      ]
+    }
+  ]
+}

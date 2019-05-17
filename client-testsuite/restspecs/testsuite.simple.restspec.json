@@ -1,0 +1,55 @@
+{
+  "name" : "simple",
+  "namespace" : "testsuite",
+  "path" : "/simple",
+  "schema" : "testsuite.Message",
+  "doc" : "generated from: testsuite.SimpleResource",
+  "simple" : {
+    "supports" : [ "delete", "get", "update" ],
+    "methods" : [ {
+      "method" : "get"
+    }, {
+      "method" : "update"
+    }, {
+      "method" : "delete"
+    } ],
+    "entity" : {
+      "path" : "/simple",
+      "subresources" : [ {
+        "name" : "subcollection",
+        "namespace" : "testsuite.simplesubresources",
+        "path" : "/simple/subcollection",
+        "schema" : "testsuite.Message",
+        "doc" : "generated from: testsuite.simplesubresources.CollectionSubResource",
+        "collection" : {
+          "identifier" : {
+            "name" : "subcollectionId",
+            "type" : "long"
+          },
+          "supports" : [ "get" ],
+          "methods" : [ {
+            "method" : "get"
+          } ],
+          "entity" : {
+            "path" : "/simple/subcollection/{subcollectionId}"
+          }
+        }
+      }, {
+        "name" : "subsimple",
+        "namespace" : "testsuite.simplesubresources",
+        "path" : "/simple/subsimple",
+        "schema" : "testsuite.Message",
+        "doc" : "generated from: testsuite.simplesubresources.SimpleSubResource",
+        "simple" : {
+          "supports" : [ "get" ],
+          "methods" : [ {
+            "method" : "get"
+          } ],
+          "entity" : {
+            "path" : "/simple/subsimple"
+          }
+        }
+      } ]
+    }
+  }
+}

@@ -1,0 +1,5 @@
+GET /params/100?complexTypesUnion=(complexTypeUnion:(testsuite.Fruits:APPLE))&int=3&long=9223372036854775807&messageArray=List((message:test%20message),(message:another%20message))&primitiveUnion=(primitivesUnion:(long:100))&string=string&stringArray=List(string%20one,string%20two)&stringMap=(one:string%20one,two:string%20two)&urlTyperef=http%3A//rest.li HTTP/1.1
+Accept: application/json
+X-RestLi-Protocol-Version: 2.0.0
+
+

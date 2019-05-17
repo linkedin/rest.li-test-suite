@@ -1,0 +1,6 @@
+{
+  "type" : "enum",
+  "name" : "Fruits",
+  "namespace": "testsuite",
+  "symbols" : [ "APPLE", "ORANGE" ]
+}

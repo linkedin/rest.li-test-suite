@@ -1,0 +1,8 @@
+{
+  "string": "test",
+  "number": 1,
+  "boolean": true,
+  "null": null,
+  "object": { "key": "value" },
+  "array": [ 1, 2 ]
+}

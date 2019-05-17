@@ -1,0 +1,19 @@
+{
+  "type" : "record",
+  "name" : "Defaults",
+  "namespace": "testsuite",
+  "fields" : [
+    { "name" : "defaultInteger", "type" : "int",    "default": 1 },
+    { "name" : "defaultLong",    "type" : "long",   "default": 23 },
+    { "name" : "defaultFloat",   "type" : "float",  "default": 52.5 },
+    { "name" : "defaultDouble",  "type" : "double", "default": 66.5 },
+    { "name" : "defaultBytes",   "type" : "bytes",  "default": "@ABC" },
+    { "name" : "defaultString",  "type" : "string", "default": "default string" },
+    { "name" : "defaultEnum",    "type" : "Fruits", "default": "APPLE" },
+    { "name" : "defaultFixed",   "type" : "Fixed5", "default": "\u0001\u0002\u0003\u0004\u0005" },
+    { "name" : "defaultRecord",  "type" : "PrimitiveField", "default": { "integer": 10 } },
+    { "name" : "defaultArray",   "type" : { "type" : "array", "items" : "int" }, "default": [ 1, 3, 5 ] },
+    { "name" : "defaultMap",     "type" : { "type" : "map", "values" : "int" }, "default": { "a": 1, "b": 2 } },
+    { "name" : "defaultUnion",   "type" : [ "int", "null", "boolean", "long", "float", "double", "bytes", "string" ], "default": { "int": 5 } }
+  ]
+}

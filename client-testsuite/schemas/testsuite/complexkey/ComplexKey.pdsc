@@ -1,0 +1,10 @@
+{
+  "type" : "record",
+  "name" : "ComplexKey",
+  "namespace": "testsuite.complexkey",
+  "fields" : [
+    { "name" : "part1", "type": "string" },
+    { "name" : "part2", "type": "long" },
+    { "name" : "part3", "type": "testsuite.Fruits" }
+  ]
+}

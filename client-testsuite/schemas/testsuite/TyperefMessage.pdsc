@@ -1,0 +1,6 @@
+{
+  "type" : "typeref",
+  "name" : "TyperefMessage",
+  "namespace" : "testsuite",
+  "ref" : "Message"
+}

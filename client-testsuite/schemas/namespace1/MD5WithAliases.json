@@ -1,0 +1,7 @@
+{
+  "type" : "fixed",
+  "name" : "MD5WithAliases",
+  "namespace" : "namespace1",
+  "size" : 16,
+  "aliases" : [ "abc.m1", "cde.m2" ]
+}

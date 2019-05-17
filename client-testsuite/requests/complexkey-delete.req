@@ -1,0 +1,5 @@
+DELETE /complexkey/$params.param1=param1&$params.param2=5&part1=one&part2=2&part3=APPLE HTTP/1.1
+Accept: application/json
+X-RestLi-Protocol-Version: 1.0.0
+
+

@@ -1,0 +1,14 @@
+{
+  "type" : "record",
+  "name" : "ComplexTypes",
+  "namespace": "testsuite",
+  "fields" : [
+    { "name" : "arrayOfMaps", "type" : "ArrayOfMaps" },
+    { "name" : "mapOfInts", "type" : "MapOfInts" },
+    { "name" : "recordWithProps", "type" : "RecordWithProps" },
+    { "name" : "unionOfComplexTypes", "type" : "UnionOfComplexTypes" },
+    { "name" : "unionOfPrimitives", "type" : "UnionOfPrimitives" },
+    { "name" : "anotherUnionOfComplexTypes", "type" : "UnionOfComplexTypes"},
+    { "name" : "unionOfSameTypes", "type" : "UnionOfSameTypes"}
+  ]
+}

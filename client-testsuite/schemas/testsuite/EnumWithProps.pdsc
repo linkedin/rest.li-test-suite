@@ -1,0 +1,14 @@
+{
+  "type": "enum",
+  "name": "EnumWithProps",
+  "namespace": "testsuite",
+  "doc": "documentation",
+  "symbols": [ "APPLE", "ORANGE" ],
+  "symbolDocs": {
+    "APPLE": "DOC_APPLE",
+    "ORANGE": "DOC_ORANGE"
+  },
+  "prop1": "xx",
+  "prop2": "yy",
+  "aliases": [ "EnumWithPropsAlias" ]
+}

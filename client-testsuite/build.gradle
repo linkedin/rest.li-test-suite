@@ -1,0 +1,44 @@
+apply plugin: 'pegasus'
+
+dependencies {
+  compile restliSpec.product.pegasus.data
+  compile restliSpec.product.pegasus.restliClient
+  compile restliSpec.product.pegasus.restliCommon
+  compile restliSpec.product.pegasus.restliServer
+  compile restliSpec.product.pegasus.r2Netty
+  restClientCompile project(project.path)
+  testCompile externalDependency.testng
+  testCompile externalDependency.commonsIo
+  testCompile project(path: project.path, configuration: 'restClient')
+}
+
+tasks.withType(Test) {
+  systemProperties['test.projectDir'] = project.projectDir.path
+}
+
+task generateRequestAndResponseFiles(type: JavaExec, dependsOn: [testClasses]) {
+  main = "com.linkedin.pegasus.testsuite.RequestResponseFileGenerator"
+  classpath sourceSets.test.runtimeClasspath
+  systemProperty 'test.projectDir', project.projectDir.path
+}
+
+test {
+  useTestNG()
+}
+
+sourceSets {
+  main {
+    resources {
+      srcDir "${projectDir}"
+      include 'data/*.json'
+      include 'requests/*.req'
+      include 'requests-v2/*.req'
+      include 'responses/*.res'
+      include 'responses-v2/*.res'
+      include 'restspecs/*.restspec.json'
+      include 'schemas/**'
+      include 'snapshots/*.snapshot.json'
+      include 'manifest.json'
+    }
+  }
+}

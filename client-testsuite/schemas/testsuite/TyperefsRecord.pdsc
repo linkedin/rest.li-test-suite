@@ -1,0 +1,14 @@
+{
+  "type" : "record",
+  "name" : "TyperefsRecord",
+  "namespace": "testsuite",
+  "fields" : [
+    { "name" : "stringTyperef",  "type" : "Url" },
+    { "name" : "arrayTyperef",   "type" : { "type" : "typeref", "name" : "ArrayOfIntsTyperef", "ref" : { "type" : "array", "items" : "int" } } },
+    { "name" : "chainedTyperef", "type" : { "type" : "typeref", "name" : "Int3", "ref" : { "type" : "typeref", "name" : "int2", "ref" : "int" } } },
+    { "name" : "typerefInArray", "type" : { "type" : "record",  "name" : "ArrayRecord", "fields" : [ { "name" : "nestedArray", "type" : { "type" : "array", "items" : { "type" : "typeref", "name" : "ArrayIntRef", "ref" : "int" } } } ] } },
+    { "name" : "typerefInMap",   "type" : { "type" : "record",  "name" : "MapRecord", "fields" : [ { "name" : "nestedMap", "type" : { "type" : "map", "values" : { "type" : "typeref", "name" : "MapIntRef", "ref" : "int" } } } ] } },
+    { "name" : "typerefInField", "type" : { "type" : "record",  "name" : "InFieldRecord", "fields" : [ { "name" : "nestedMap", "type" : { "type" : "map", "values" : { "type" : "typeref", "name" : "FieldIntRef", "ref" : "int" } } } ] } },
+    { "name" : "typerefInUnion", "type" : { "type" : "record",  "name" : "InUnionRecord", "fields" : [ { "name" : "nestedUnion", "type" : [ { "type" : "typeref", "name" : "UnionIntRef", "ref" : "int" }, "double" ] } ] } }
+  ]
+}

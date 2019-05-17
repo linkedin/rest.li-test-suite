@@ -1,0 +1,5 @@
+DELETE /complexkey?ids%5B0%5D.$params.param1=param1&ids%5B0%5D.$params.param2=5&ids%5B0%5D.part1=one&ids%5B0%5D.part2=2&ids%5B0%5D.part3=APPLE&ids%5B1%5D.$params.param1=param2&ids%5B1%5D.$params.param2=11&ids%5B1%5D.part1=two&ids%5B1%5D.part2=7&ids%5B1%5D.part3=ORANGE HTTP/1.1
+Accept: application/json
+X-RestLi-Protocol-Version: 1.0.0
+
+

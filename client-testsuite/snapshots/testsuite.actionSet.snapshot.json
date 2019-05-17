@@ -1,0 +1,144 @@
+{
+  "models" : [ {
+    "type" : "enum",
+    "name" : "Fruits",
+    "namespace" : "testsuite",
+    "symbols" : [ "APPLE", "ORANGE" ]
+  }, {
+    "type" : "record",
+    "name" : "Message",
+    "namespace" : "testsuite",
+    "fields" : [ {
+      "name" : "id",
+      "type" : "long",
+      "optional" : true
+    }, {
+      "name" : "message",
+      "type" : "string"
+    } ]
+  }, {
+    "type" : "record",
+    "name" : "UnionOfComplexTypes",
+    "namespace" : "testsuite",
+    "fields" : [ {
+      "name" : "complexTypeUnion",
+      "type" : [ "Fruits", {
+        "type" : "array",
+        "items" : {
+          "type" : "map",
+          "values" : "int"
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "record",
+    "name" : "UnionOfPrimitives",
+    "namespace" : "testsuite",
+    "fields" : [ {
+      "name" : "primitivesUnion",
+      "type" : [ "null", "boolean", "int", "long", "float", "double", "bytes", "string" ]
+    } ]
+  }, {
+    "type" : "typeref",
+    "name" : "Url",
+    "namespace" : "testsuite",
+    "ref" : "string"
+  } ],
+  "schema" : {
+    "name" : "actionSet",
+    "namespace" : "testsuite",
+    "path" : "/actionSet",
+    "doc" : "generated from: testsuite.ActionSetResource",
+    "actionsSet" : {
+      "actions" : [ {
+        "name" : "echo",
+        "parameters" : [ {
+          "name" : "input",
+          "type" : "string"
+        } ],
+        "returns" : "string"
+      }, {
+        "name" : "echoComplexTypesUnion",
+        "parameters" : [ {
+          "name" : "complexTypesUnion",
+          "type" : "testsuite.UnionOfComplexTypes"
+        } ],
+        "returns" : "testsuite.UnionOfComplexTypes"
+      }, {
+        "name" : "echoMessage",
+        "parameters" : [ {
+          "name" : "message",
+          "type" : "testsuite.Message"
+        } ],
+        "returns" : "testsuite.Message"
+      }, {
+        "name" : "echoMessageArray",
+        "parameters" : [ {
+          "name" : "messages",
+          "type" : "{ \"type\" : \"array\", \"items\" : \"testsuite.Message\" }"
+        } ],
+        "returns" : "{ \"type\" : \"array\", \"items\" : \"testsuite.Message\" }"
+      }, {
+        "name" : "echoPrimitiveUnion",
+        "parameters" : [ {
+          "name" : "primitiveUnion",
+          "type" : "testsuite.UnionOfPrimitives"
+        } ],
+        "returns" : "testsuite.UnionOfPrimitives"
+      }, {
+        "name" : "echoStringArray",
+        "parameters" : [ {
+          "name" : "strings",
+          "type" : "{ \"type\" : \"array\", \"items\" : \"string\" }"
+        } ],
+        "returns" : "{ \"type\" : \"array\", \"items\" : \"string\" }"
+      }, {
+        "name" : "echoStringMap",
+        "parameters" : [ {
+          "name" : "strings",
+          "type" : "{ \"type\" : \"map\", \"values\" : \"string\" }"
+        } ],
+        "returns" : "{ \"type\" : \"map\", \"values\" : \"string\" }"
+      }, {
+        "name" : "echoTyperefUrl",
+        "parameters" : [ {
+          "name" : "urlTyperef",
+          "type" : "testsuite.Url"
+        } ],
+        "returns" : "testsuite.Url"
+      }, {
+        "name" : "emptyResponse",
+        "parameters" : [ {
+          "name" : "message1",
+          "type" : "testsuite.Message"
+        }, {
+          "name" : "message2",
+          "type" : "testsuite.Message"
+        } ]
+      }, {
+        "name" : "multipleInputs",
+        "parameters" : [ {
+          "name" : "string",
+          "type" : "string"
+        }, {
+          "name" : "message",
+          "type" : "testsuite.Message"
+        }, {
+          "name" : "urlTyperef",
+          "type" : "testsuite.Url"
+        }, {
+          "name" : "optionalString",
+          "type" : "string",
+          "optional" : true
+        } ],
+        "returns" : "boolean"
+      }, {
+        "name" : "returnBool",
+        "returns" : "boolean"
+      }, {
+        "name" : "returnInt",
+        "returns" : "int"
+      } ]
+    }
+  }
+}

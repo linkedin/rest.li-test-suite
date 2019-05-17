@@ -1,0 +1,41 @@
+{
+  "name" : "association",
+  "namespace" : "testsuite",
+  "path" : "/association",
+  "schema" : "testsuite.LargeRecord",
+  "doc" : "generated from: testsuite.AssociationResource",
+  "association" : {
+    "identifier" : "associationId",
+    "assocKeys" : [ {
+      "name" : "part1",
+      "type" : "string"
+    }, {
+      "name" : "part2",
+      "type" : "long"
+    }, {
+      "name" : "part3",
+      "type" : "string"
+    } ],
+    "supports" : [ "batch_delete", "batch_get", "batch_update", "delete", "get", "update" ],
+    "methods" : [ {
+      "method" : "get"
+    }, {
+      "method" : "update"
+    }, {
+      "method" : "delete"
+    }, {
+      "method" : "batch_get"
+    }, {
+      "method" : "batch_update"
+    }, {
+      "method" : "batch_delete"
+    } ],
+    "finders" : [ {
+      "name" : "part1",
+      "assocKeys" : [ "part1" ]
+    } ],
+    "entity" : {
+      "path" : "/association/{associationId}"
+    }
+  }
+}

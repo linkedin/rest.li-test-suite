@@ -1,0 +1,11 @@
+{
+  "type" : "record",
+  "name" : "TypeDefinedInInclude",
+  "namespace": "testsuite",
+  "include" : [
+    { "type" : "record", "name" : "DefinedInInclude", "fields" : [ ] }
+  ],
+  "fields" : [
+    { "name" : "b1", "type" : "DefinedInInclude" }
+  ]
+}

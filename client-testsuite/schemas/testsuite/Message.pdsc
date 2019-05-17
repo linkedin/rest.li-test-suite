@@ -1,0 +1,16 @@
+{
+  "type" : "record",
+  "name" : "Message",
+  "namespace": "testsuite",
+  "fields" : [
+    {
+      "name" : "id",
+      "type" : "long",
+      "optional" : true
+    },
+    {
+      "name" : "message",
+      "type" : "string"
+    }
+  ]
+}

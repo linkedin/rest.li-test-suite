@@ -1,0 +1,9 @@
+{
+  "primitiveInteger": 1,
+  "primitiveLong": 23,
+  "primitiveFloat": 52.5,
+  "primitiveDouble": 66.5,
+  "primitiveBytes": "@ABC",
+  "primitiveString": "a string",
+  "primitiveFixed": "\u0001\u0002\u0003\u0004\u0005"
+}

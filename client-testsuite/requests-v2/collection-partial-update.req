@@ -1,0 +1,13 @@
+POST /collection/1 HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+X-RestLi-Method: partial_update
+X-RestLi-Protocol-Version: 2.0.0
+
+{
+  "patch" : {
+    "$set" : {
+      "message" : "partial updated message"
+    }
+  }
+}

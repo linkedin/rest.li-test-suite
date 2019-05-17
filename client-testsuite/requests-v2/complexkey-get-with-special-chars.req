@@ -1,0 +1,5 @@
+GET /complexkey/($params:(param1:param!*%27%28%29%3B%3A@&=+$%2C%2F%3F%23%5B%5D.~,param2:5),part1:key!*%27%28%29%3B%3A@&=+$%2C%2F%3F%23%5B%5D.~,part2:2,part3:APPLE) HTTP/1.1
+Accept: application/json
+X-RestLi-Protocol-Version: 2.0.0
+
+

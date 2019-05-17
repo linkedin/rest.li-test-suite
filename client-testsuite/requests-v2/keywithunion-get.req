@@ -1,0 +1,5 @@
+GET /keywithunion/($params:(param1:param1,param2:5),union:(testsuite.complexkey.ComplexKey:(part1:one,part2:2,part3:APPLE))) HTTP/1.1
+Accept: application/json
+X-RestLi-Protocol-Version: 2.0.0
+
+

@@ -1,0 +1,11 @@
+{
+  "type" : "record",
+  "name" : "WireProtocolTest",
+  "namespace": "manifest",
+  "fields" : [
+    { "name" : "name",   "type" : "string" },
+    { "name" : "restspec",   "type" : "string" },
+    { "name" : "snapshot",   "type" : "string" },
+    { "name" : "operations",   "type" : { "type" : "array", "items" : "WireProtocolOperationTest" } }
+  ]
+}

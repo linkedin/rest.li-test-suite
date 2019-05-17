@@ -1,0 +1,8 @@
+{
+  "object": {},
+  "array": [],
+  "objectOfArrays": { "one": [], "two": [] },
+  "objectOfObjects": { "one": {}, "two": {} },
+  "arrayOfObjects": [ {}, {} ],
+  "arrayOfArrays": [ [], [] ]
+}

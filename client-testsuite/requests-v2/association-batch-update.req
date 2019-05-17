@@ -1,0 +1,29 @@
+PUT /association?ids=List((part1:two,part2:3,part3:ORANGE),(part1:five,part2:9,part3:APPLE)) HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+X-RestLi-Protocol-Version: 2.0.0
+
+{
+  "entities" : {
+    "(part1:five,part2:9,part3:APPLE)" : {
+      "message" : {
+        "message" : "another updated message"
+      },
+      "key" : {
+        "part1" : "five",
+        "part2" : 9,
+        "part3" : "APPLE"
+      }
+    },
+    "(part1:two,part2:3,part3:ORANGE)" : {
+      "message" : {
+        "message" : "updated message"
+      },
+      "key" : {
+        "part1" : "two",
+        "part2" : 3,
+        "part3" : "ORANGE"
+      }
+    }
+  }
+}

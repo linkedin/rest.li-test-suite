@@ -1,0 +1,13 @@
+{
+  "type" : "record",
+  "name" : "Primitives",
+  "namespace": "testsuite",
+  "fields" : [
+    { "name" : "primitiveInteger", "type" : "int" },
+    { "name" : "primitiveLong",    "type" : "long" },
+    { "name" : "primitiveFloat",   "type" : "float" },
+    { "name" : "primitiveDouble",  "type" : "double" },
+    { "name" : "primitiveBytes",   "type" : "bytes" },
+    { "name" : "primitiveString",  "type" : "string" }
+  ]
+}

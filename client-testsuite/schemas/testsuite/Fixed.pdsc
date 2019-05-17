@@ -1,0 +1,11 @@
+{
+  "type" : "record",
+  "name" : "Fixed",
+  "namespace": "testsuite",
+  "fields" : [
+    { "name" : "fixed5",   "type" : "Fixed5" },
+    { "name" : "md5",   "type" : "MD5" },
+    { "name" : "md5alias1",   "type" : "m1" },
+    { "name" : "md5alias2",   "type" : "m2" }
+  ]
+}

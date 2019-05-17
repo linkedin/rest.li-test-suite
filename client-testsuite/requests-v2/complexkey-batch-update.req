@@ -1,0 +1,29 @@
+PUT /complexkey?ids=List(($params:(param1:param1,param2:5),part1:one,part2:2,part3:APPLE),($params:(param1:param2,param2:11),part1:two,part2:7,part3:ORANGE)) HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+X-RestLi-Protocol-Version: 2.0.0
+
+{
+  "entities" : {
+    "($params:(param1:param1,param2:5),part1:one,part2:2,part3:APPLE)" : {
+      "message" : {
+        "message" : "updated message"
+      },
+      "key" : {
+        "part1" : "one",
+        "part2" : 2,
+        "part3" : "APPLE"
+      }
+    },
+    "($params:(param1:param2,param2:11),part1:two,part2:7,part3:ORANGE)" : {
+      "message" : {
+        "message" : "another updated message"
+      },
+      "key" : {
+        "part1" : "one",
+        "part2" : 2,
+        "part3" : "APPLE"
+      }
+    }
+  }
+}

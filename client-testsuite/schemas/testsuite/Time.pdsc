@@ -1,0 +1,7 @@
+{
+  "type" : "typeref",
+  "name" : "Time",
+  "namespace": "testsuite",
+  "ref"  : "long",
+  "doc"  : "Time in milliseconds since Jan 1, 1970 UTC"
+}

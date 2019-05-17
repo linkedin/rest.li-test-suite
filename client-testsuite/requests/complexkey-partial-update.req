@@ -1,0 +1,15 @@
+POST /complexkey/$params.param1=param1&$params.param2=5&part1=one&part2=2&part3=APPLE HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+X-RestLi-Method: partial_update
+X-RestLi-Protocol-Version: 1.0.0
+
+{
+  "patch" : {
+    "key" : {
+      "$set" : {
+        "part1" : "newpart1"
+      }
+    }
+  }
+}

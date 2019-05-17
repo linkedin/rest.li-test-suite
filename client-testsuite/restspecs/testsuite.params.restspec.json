@@ -1,0 +1,52 @@
+{
+  "name" : "params",
+  "namespace" : "testsuite",
+  "path" : "/params",
+  "schema" : "testsuite.Message",
+  "doc" : "generated from: testsuite.ParamsResource",
+  "collection" : {
+    "identifier" : {
+      "name" : "paramsId",
+      "type" : "long"
+    },
+    "supports" : [ "get" ],
+    "methods" : [ {
+      "method" : "get",
+      "parameters" : [ {
+        "name" : "int",
+        "type" : "int"
+      }, {
+        "name" : "string",
+        "type" : "string"
+      }, {
+        "name" : "long",
+        "type" : "long"
+      }, {
+        "name" : "stringArray",
+        "type" : "{ \"type\" : \"array\", \"items\" : \"string\" }"
+      }, {
+        "name" : "messageArray",
+        "type" : "{ \"type\" : \"array\", \"items\" : \"testsuite.Message\" }"
+      }, {
+        "name" : "stringMap",
+        "type" : "{ \"type\" : \"map\", \"values\" : \"string\" }"
+      }, {
+        "name" : "primitiveUnion",
+        "type" : "testsuite.UnionOfPrimitives"
+      }, {
+        "name" : "complexTypesUnion",
+        "type" : "testsuite.UnionOfComplexTypes"
+      }, {
+        "name" : "optionalString",
+        "type" : "string",
+        "optional" : true
+      }, {
+        "name" : "urlTyperef",
+        "type" : "testsuite.Url"
+      } ]
+    } ],
+    "entity" : {
+      "path" : "/params/{paramsId}"
+    }
+  }
+}

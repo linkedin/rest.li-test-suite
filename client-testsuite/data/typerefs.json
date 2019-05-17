@@ -1,0 +1,9 @@
+{
+  "stringTyperef": "http://rest.li",
+  "arrayTyperef": [1,3,5],
+  "chainedTyperef": 10,
+  "typerefInArray": { "nestedArray": [7,9,11] },
+  "typerefInMap": { "nestedMap": { "one": 1, "two": 2 } },
+  "typerefInField": { "nestedMap": { "one": 1, "two": 2 } },
+  "typerefInUnion": { "nestedUnion": { "int": 10 } }
+}

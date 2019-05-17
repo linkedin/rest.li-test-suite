@@ -1,0 +1,14 @@
+{
+  "defaultInteger": 1,
+  "defaultLong": 23,
+  "defaultFloat": 52.5,
+  "defaultDouble": 66.5,
+  "defaultBytes": "@ABC",
+  "defaultString": "default string",
+  "defaultEnum": "APPLE",
+  "defaultFixed": "\u0001\u0002\u0003\u0004\u0005",
+  "defaultRecord": { "integer": 10 },
+  "defaultArray": [ 1, 3, 5 ],
+  "defaultMap": { "a": 1, "b": 2 },
+  "defaultUnion": { "int": 5 }
+}

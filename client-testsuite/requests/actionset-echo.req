@@ -1,0 +1,9 @@
+POST /actionSet?action=echo HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+X-RestLi-Method: action
+X-RestLi-Protocol-Version: 1.0.0
+
+{
+  "input" : "Is anybody out there?"
+}

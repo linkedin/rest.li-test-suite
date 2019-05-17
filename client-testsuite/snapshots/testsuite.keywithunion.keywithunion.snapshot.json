@@ -1,0 +1,104 @@
+{
+  "models" : [ {
+    "type" : "enum",
+    "name" : "Fruits",
+    "namespace" : "testsuite",
+    "symbols" : [ "APPLE", "ORANGE" ]
+  }, {
+    "type" : "record",
+    "name" : "ComplexKey",
+    "namespace" : "testsuite.complexkey",
+    "fields" : [ {
+      "name" : "part1",
+      "type" : "string"
+    }, {
+      "name" : "part2",
+      "type" : "long"
+    }, {
+      "name" : "part3",
+      "type" : "testsuite.Fruits"
+    } ]
+  }, {
+    "type" : "record",
+    "name" : "Message",
+    "namespace" : "testsuite",
+    "fields" : [ {
+      "name" : "id",
+      "type" : "long",
+      "optional" : true
+    }, {
+      "name" : "message",
+      "type" : "string"
+    } ]
+  }, {
+    "type" : "record",
+    "name" : "LargeRecord",
+    "namespace" : "testsuite",
+    "fields" : [ {
+      "name" : "key",
+      "type" : "testsuite.complexkey.ComplexKey"
+    }, {
+      "name" : "message",
+      "type" : "Message"
+    }, {
+      "name" : "optionalArray",
+      "type" : {
+        "type" : "array",
+        "items" : "int"
+      },
+      "optional" : true
+    }, {
+      "name" : "optionalMap",
+      "type" : {
+        "type" : "map",
+        "values" : "int"
+      },
+      "optional" : true
+    }, {
+      "name" : "optionalUnion",
+      "type" : [ "null", "boolean", "int", "long", "float", "double", "bytes", "string" ],
+      "optional" : true
+    } ]
+  }, {
+    "type" : "record",
+    "name" : "KeyWithUnion",
+    "namespace" : "testsuite.complexkey",
+    "fields" : [ {
+      "name" : "union",
+      "type" : [ "ComplexKey", "string" ]
+    } ]
+  }, {
+    "type" : "record",
+    "name" : "KeyParams",
+    "namespace" : "testsuite.complexkey",
+    "fields" : [ {
+      "name" : "param1",
+      "type" : "string"
+    }, {
+      "name" : "param2",
+      "type" : "long",
+      "optional" : true
+    } ]
+  } ],
+  "schema" : {
+    "name" : "keywithunion",
+    "namespace" : "testsuite.keywithunion",
+    "path" : "/keywithunion",
+    "schema" : "testsuite.LargeRecord",
+    "doc" : "generated from: testsuite.keywithunion.KeyWithUnionResource",
+    "collection" : {
+      "identifier" : {
+        "name" : "keywithunionId",
+        "type" : "testsuite.complexkey.KeyWithUnion",
+        "params" : "testsuite.complexkey.KeyParams"
+      },
+      "supports" : [ "get" ],
+      "methods" : [ {
+        "method" : "get"
+      } ],
+      "entity" : {
+        "path" : "/keywithunion/{keywithunionId}"
+      }
+    }
+  }
+}

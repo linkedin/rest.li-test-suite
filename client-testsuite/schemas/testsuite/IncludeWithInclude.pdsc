@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "name": "IncludeWithInclude",
+  "namespace": "testsuite",
+  "include": [ "Include" ],
+  "fields": [
+    {
+      "name": "j1",
+      "type": "float"
+    }
+  ]
+}

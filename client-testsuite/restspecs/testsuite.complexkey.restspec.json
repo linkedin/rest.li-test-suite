@@ -1,0 +1,37 @@
+{
+  "name" : "complexkey",
+  "namespace" : "testsuite",
+  "path" : "/complexkey",
+  "schema" : "testsuite.LargeRecord",
+  "doc" : "generated from: testsuite.ComplexKeyResource",
+  "collection" : {
+    "identifier" : {
+      "name" : "complexkeyId",
+      "type" : "testsuite.complexkey.ComplexKey",
+      "params" : "testsuite.complexkey.KeyParams"
+    },
+    "supports" : [ "batch_create", "batch_delete", "batch_get", "batch_update", "create", "delete", "get", "partial_update", "update" ],
+    "methods" : [ {
+      "method" : "create"
+    }, {
+      "method" : "get"
+    }, {
+      "method" : "update"
+    }, {
+      "method" : "partial_update"
+    }, {
+      "method" : "delete"
+    }, {
+      "method" : "batch_create"
+    }, {
+      "method" : "batch_get"
+    }, {
+      "method" : "batch_update"
+    }, {
+      "method" : "batch_delete"
+    } ],
+    "entity" : {
+      "path" : "/complexkey/{complexkeyId}"
+    }
+  }
+}

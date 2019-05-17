@@ -1,0 +1,24 @@
+{
+  "name" : "associationTyperef",
+  "namespace" : "testsuite.typerefs",
+  "path" : "/associationTyperef",
+  "schema" : "testsuite.Message",
+  "doc" : "generated from: testsuite.typerefs.AssociationTyperefResource",
+  "association" : {
+    "identifier" : "associationTyperefId",
+    "assocKeys" : [ {
+      "name" : "part1",
+      "type" : "testsuite.Url"
+    }, {
+      "name" : "part2",
+      "type" : "long"
+    } ],
+    "supports" : [ "get" ],
+    "methods" : [ {
+      "method" : "get"
+    } ],
+    "entity" : {
+      "path" : "/associationTyperef/{associationTyperefId}"
+    }
+  }
+}

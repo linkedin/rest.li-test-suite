@@ -1,0 +1,19 @@
+{
+  "type" : "record",
+  "name" : "Optionals",
+  "namespace": "testsuite",
+  "fields" : [
+    { "name" : "optionalInteger", "type" : "int",    "optional": true },
+    { "name" : "optionalLong",    "type" : "long",   "optional": true },
+    { "name" : "optionalFloat",   "type" : "float",  "optional": true },
+    { "name" : "optionalDouble",  "type" : "double", "optional": true },
+    { "name" : "optionalBytes",   "type" : "bytes",  "optional": true },
+    { "name" : "optionalString",  "type" : "string", "optional": true },
+    { "name" : "optionalEnum",    "type" : "Fruits", "optional": true },
+    { "name" : "optionalFixed",   "type" : "Fixed5", "optional": true },
+    { "name" : "optionalRecord",  "type" : "PrimitiveField", "optional": true },
+    { "name" : "optionalArray",   "type" : { "type" : "array", "items" : "int" }, "optional": true },
+    { "name" : "optionalMap",     "type" : { "type" : "map", "values" : "int" }, "optional": true },
+    { "name" : "optionalUnion",   "type" : [ "null", "boolean", "int", "long", "float", "double", "bytes", "string" ], "optional": true }
+  ]
+}

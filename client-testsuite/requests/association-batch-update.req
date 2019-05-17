@@ -1,0 +1,29 @@
+PUT /association?ids=part1%3Dfive%26part2%3D9%26part3%3DAPPLE&ids=part1%3Dtwo%26part2%3D3%26part3%3DORANGE HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+X-RestLi-Protocol-Version: 1.0.0
+
+{
+  "entities" : {
+    "part1=two&part2=3&part3=ORANGE" : {
+      "message" : {
+        "message" : "updated message"
+      },
+      "key" : {
+        "part1" : "two",
+        "part2" : 3,
+        "part3" : "ORANGE"
+      }
+    },
+    "part1=five&part2=9&part3=APPLE" : {
+      "message" : {
+        "message" : "another updated message"
+      },
+      "key" : {
+        "part1" : "five",
+        "part2" : 9,
+        "part3" : "APPLE"
+      }
+    }
+  }
+}

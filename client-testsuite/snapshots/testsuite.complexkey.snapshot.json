@@ -1,0 +1,112 @@
+{
+  "models" : [ {
+    "type" : "enum",
+    "name" : "Fruits",
+    "namespace" : "testsuite",
+    "symbols" : [ "APPLE", "ORANGE" ]
+  }, {
+    "type" : "record",
+    "name" : "ComplexKey",
+    "namespace" : "testsuite.complexkey",
+    "fields" : [ {
+      "name" : "part1",
+      "type" : "string"
+    }, {
+      "name" : "part2",
+      "type" : "long"
+    }, {
+      "name" : "part3",
+      "type" : "testsuite.Fruits"
+    } ]
+  }, {
+    "type" : "record",
+    "name" : "Message",
+    "namespace" : "testsuite",
+    "fields" : [ {
+      "name" : "id",
+      "type" : "long",
+      "optional" : true
+    }, {
+      "name" : "message",
+      "type" : "string"
+    } ]
+  }, {
+    "type" : "record",
+    "name" : "LargeRecord",
+    "namespace" : "testsuite",
+    "fields" : [ {
+      "name" : "key",
+      "type" : "testsuite.complexkey.ComplexKey"
+    }, {
+      "name" : "message",
+      "type" : "Message"
+    }, {
+      "name" : "optionalArray",
+      "type" : {
+        "type" : "array",
+        "items" : "int"
+      },
+      "optional" : true
+    }, {
+      "name" : "optionalMap",
+      "type" : {
+        "type" : "map",
+        "values" : "int"
+      },
+      "optional" : true
+    }, {
+      "name" : "optionalUnion",
+      "type" : [ "null", "boolean", "int", "long", "float", "double", "bytes", "string" ],
+      "optional" : true
+    } ]
+  }, {
+    "type" : "record",
+    "name" : "KeyParams",
+    "namespace" : "testsuite.complexkey",
+    "fields" : [ {
+      "name" : "param1",
+      "type" : "string"
+    }, {
+      "name" : "param2",
+      "type" : "long",
+      "optional" : true
+    } ]
+  } ],
+  "schema" : {
+    "name" : "complexkey",
+    "namespace" : "testsuite",
+    "path" : "/complexkey",
+    "schema" : "testsuite.LargeRecord",
+    "doc" : "generated from: testsuite.ComplexKeyResource",
+    "collection" : {
+      "identifier" : {
+        "name" : "complexkeyId",
+        "type" : "testsuite.complexkey.ComplexKey",
+        "params" : "testsuite.complexkey.KeyParams"
+      },
+      "supports" : [ "batch_create", "batch_delete", "batch_get", "batch_update", "create", "delete", "get", "partial_update", "update" ],
+      "methods" : [ {
+        "method" : "create"
+      }, {
+        "method" : "get"
+      }, {
+        "method" : "update"
+      }, {
+        "method" : "partial_update"
+      }, {
+        "method" : "delete"
+      }, {
+        "method" : "batch_create"
+      }, {
+        "method" : "batch_get"
+      }, {
+        "method" : "batch_update"
+      }, {
+        "method" : "batch_delete"
+      } ],
+      "entity" : {
+        "path" : "/complexkey/{complexkeyId}"
+      }
+    }
+  }
+}

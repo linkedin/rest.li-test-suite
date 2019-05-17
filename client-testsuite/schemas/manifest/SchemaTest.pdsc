@@ -1,0 +1,10 @@
+{
+  "type" : "record",
+  "name" : "SchemaTest",
+  "namespace": "manifest",
+  "fields" : [
+    { "name" : "schema",   "type" : "string" },
+    { "name" : "data",   "type" : "string" },
+    { "name" : "withFixup",   "type" : "string", "optional": true  }
+  ]
+}

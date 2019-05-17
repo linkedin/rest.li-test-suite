@@ -1,0 +1,163 @@
+{
+  "jsonTestData": [
+    { "data": "data/types.json" },
+    { "data": "data/empty-collections.json" },
+    { "data": "data/large-values.json" },
+    { "data": "data/special-chars.json" },
+    { "data": "data/unicode.json" }
+  ],
+  "schemaTestData": [
+    { "schema": "testsuite.Primitives", "data": "data/primitives.json" },
+    { "schema": "testsuite.ComplexTypes", "data": "data/complex-types.json" },
+    { "schema": "testsuite.Enums", "data": "data/enums.json" },
+    { "schema": "testsuite.Fixed", "data": "data/fixed.json" },
+    { "schema": "testsuite.TyperefsRecord", "data": "data/typerefs.json" },
+    { "schema": "testsuite.Includes", "data": "data/includes.json" },
+    { "schema": "testsuite.Defaults", "data": "data/without-defaults.json", "withFixup": "data/with-defaults.json" },
+    { "schema": "testsuite.Defaults", "data": "data/with-defaults.json" },
+    { "schema": "testsuite.Optionals", "data": "data/without-optionals.json" },
+    { "schema": "testsuite.Optionals", "data": "data/with-optionals.json" }
+  ],
+  "wireProtocolTestData": [
+    {
+      "name": "collectionReturnEntity",
+      "restspec": "restspecs/testsuite.collectionReturnEntity.restspec.json",
+      "snapshot": "snapshots/testsuite.collectionReturnEntity.snapshot.json",
+      "operations": [
+        { "name":"collectionReturnEntity-create", "method": "create", "request": "requests/collectionReturnEntity-create.req", "response": "responses/collectionReturnEntity-create.res", "status": 201 }
+      ]
+    },
+    {
+      "name": "collection",
+      "restspec": "restspecs/testsuite.collection.restspec.json",
+      "snapshot": "snapshots/testsuite.collection.snapshot.json",
+      "operations": [
+
+        { "name":"collection-get", "method": "get", "request": "requests/collection-get.req", "response": "responses/collection-get.res", "status": 200 },
+        { "name":"collection-create", "method": "create", "request": "requests/collection-create.req", "response": "responses/collection-create.res", "status": 201 },
+        { "name":"collection-update", "method": "update", "request": "requests/collection-update.req", "response": "responses/collection-update.res", "status": 204 },
+        { "name":"collection-partial-update", "method": "partial_update", "request": "requests/collection-partial-update.req", "response": "responses/collection-partial-update.res", "status": 204 },
+        { "name":"collection-delete", "method": "delete", "request": "requests/collection-delete.req", "response": "responses/collection-delete.res", "status": 204 },
+
+        { "name":"collection-batch-get", "method": "batch_get", "request": "requests/collection-batch-get.req", "response": "responses/collection-batch-get.res", "status": 200 },
+        { "name":"collection-batch-create", "method": "batch_create", "request": "requests/collection-batch-create.req", "response": "responses/collection-batch-create.res", "status": 200 },
+        { "name":"collection-batch-update", "method": "batch_update", "request": "requests/collection-batch-update.req", "response": "responses/collection-batch-update.res", "status": 200 },
+        { "name":"collection-batch-partial-update", "method": "batch_partial_update", "request": "requests/collection-batch-partial-update.req", "response": "responses/collection-batch-partial-update.res", "status": 200 },
+        { "name":"collection-batch-delete", "method": "batch_delete", "request": "requests/collection-batch-delete.req", "response": "responses/collection-batch-delete.res", "status": 200 },
+
+        { "name":"collection-get-projection", "method": "get", "request": "requests/collection-get-projection.req", "response": "responses/collection-get-projection.res", "status": 200 },
+
+        { "name":"collection-get-404", "method": "get", "request": "requests/collection-get-404.req", "response": "responses/collection-get-404.res", "status": 404 },
+        { "name":"collection-update-400", "method": "update", "request": "requests/collection-update-400.req", "response": "responses/collection-update-400.res", "status": 400, "errorMessage": "Missing required field: message" },
+        { "name":"collection-create-500", "method": "create", "request": "requests/collection-create-500.req", "response": "responses/collection-create-500.res", "status": 500, "errorMessage": "INTERNAL SERVER ERROR" },
+        { "name":"collection-create-error-details", "method": "create", "request": "requests/collection-create-error-details.req", "response": "responses/collection-create-error-details.res", "status": 400, "errorMessage": "error details message" },
+        { "name":"collection-batch-update-errors", "method": "batch_update", "request": "requests/collection-batch-update-errors.req", "response": "responses/collection-batch-update-errors.res", "status": 200 },
+
+        { "name":"sub-collection-of-collection-get", "method": "get", "request": "requests/sub-collection-of-collection-get.req", "response": "responses/sub-collection-of-collection-get.res", "status": 200 },
+        { "name":"sub-simple-of-collection-get", "method": "get", "request": "requests/sub-simple-of-collection-get.req", "response": "responses/sub-simple-of-collection-get.res", "status": 200 },
+
+        { "name":"collection-search-finder", "method": "finder:search", "request": "requests/collection-search-finder.req", "response": "responses/collection-search-finder.res", "status": 200 }
+      ]
+    },
+    {
+      "name": "complexkey",
+      "restspec": "restspecs/testsuite.complexkey.restspec.json",
+      "snapshot": "snapshots/testsuite.complexkey.snapshot.json",
+      "operations": [
+        { "name":"complexkey-get", "method": "get", "request": "requests/complexkey-get.req", "response": "responses/complexkey-get.res", "status": 200 },
+        { "name":"complexkey-get-projection", "method": "get", "request": "requests/complexkey-get-projection.req", "response": "responses/complexkey-get-projection.res", "status": 200 },
+        { "name":"complexkey-create", "method": "create", "request": "requests/complexkey-create.req", "response": "responses/complexkey-create.res", "status": 201 },
+        { "name":"complexkey-update", "method": "update", "request": "requests/complexkey-update.req", "response": "responses/complexkey-update.res", "status": 204 },
+        { "name":"complexkey-delete", "method": "delete", "request": "requests/complexkey-delete.req", "response": "responses/complexkey-delete.res", "status": 204 },
+
+        { "name":"complexkey-batch-get", "method": "batch_get", "request": "requests/complexkey-batch-get.req", "response": "responses/complexkey-batch-get.res", "status": 200 },
+        { "name":"complexkey-batch-create", "method": "batch_create", "request": "requests/complexkey-batch-create.req", "response": "responses/complexkey-batch-create.res", "status": 200 },
+        { "name":"complexkey-batch-update", "method": "batch_update", "request": "requests/complexkey-batch-update.req", "response": "responses/complexkey-batch-update.res", "status": 200 },
+        { "name":"complexkey-batch-delete", "method": "batch_delete", "request": "requests/complexkey-batch-delete.req", "response": "responses/complexkey-batch-delete.res", "status": 200 },
+
+        { "name":"complexkey-partial-update", "method": "partial_update", "request": "requests/complexkey-partial-update.req", "response": "responses/complexkey-partial-update.res", "status": 204 },
+
+        { "name":"complexkey-get-with-special-chars", "method": "get", "request": "requests/complexkey-get-with-special-chars.req", "response": "responses/complexkey-get-with-special-chars.res", "status": 200 },
+        { "name":"complexkey-batch-get-with-special-chars", "method": "batch_get", "request": "requests/complexkey-batch-get-with-special-chars.req", "response": "responses/complexkey-batch-get-with-special-chars.res", "status": 200 }
+      ]
+    },
+    {
+      "name": "association",
+      "restspec": "restspecs/testsuite.association.restspec.json",
+      "snapshot": "snapshots/testsuite.association.snapshot.json",
+      "operations": [
+        { "name":"association-get", "method": "get", "request": "requests/association-get.req", "response": "responses/association-get.res", "status": 200 },
+        { "name":"association-update", "method": "update", "request": "requests/association-update.req", "response": "responses/association-update.res", "status": 204 },
+        { "name":"association-delete", "method": "delete", "request": "requests/association-delete.req", "response": "responses/association-delete.res", "status": 204 },
+
+        { "name":"association-batch-get", "method": "batch_get", "request": "requests/association-batch-get.req", "response": "responses/association-batch-get.res", "status": 200 },
+        { "name":"association-batch-update", "method": "batch_update", "request": "requests/association-batch-update.req", "response": "responses/association-batch-update.res", "status": 200 },
+        { "name":"association-batch-delete", "method": "batch_delete", "request": "requests/association-batch-delete.req", "response": "responses/association-batch-delete.res", "status": 200 },
+
+        { "name":"association-assoc-key-finder", "method": "finder:part1", "request": "requests/association-assoc-key-finder.req", "response": "responses/association-assoc-key-finder.res", "status": 200 }
+      ]
+    },
+    {
+      "name": "simple",
+      "restspec": "restspecs/simple.restspec.json",
+      "snapshot": "snapshots/simple.snapshot.json",
+      "operations": [
+        { "name":"simple-get", "method": "get", "request": "requests/simple-get.req", "response": "responses/simple-get.res", "status": 200 },
+        { "name":"simple-update", "method": "update", "request": "requests/simple-update.req", "response": "responses/simple-update.res", "status": 204 },
+        { "name":"simple-delete", "method": "delete", "request": "requests/simple-delete.req", "response": "responses/simple-delete.res", "status": 204 }
+      ]
+    },
+    {
+      "name": "actionSet",
+      "restspec": "restspecs/testsuite.actionSet.restspec.json",
+      "snapshot": "snapshots/testsuite.actionSet.snapshot.json",
+      "operations": [
+        { "name":"actionset-echo", "method": "action:echo", "request": "requests/actionset-echo.req", "response": "responses/actionset-echo.res", "status": 200 },
+        { "name":"actionset-return-int", "method": "action:returnInt", "request": "requests/actionset-return-int.req", "response": "responses/actionset-return-int.res", "status": 200 },
+        { "name":"actionset-return-bool", "method": "action:returnBool", "request": "requests/actionset-return-bool.req", "response": "responses/actionset-return-bool.res", "status": 200 },
+        { "name":"actionset-echo-message", "method": "action:echoMessage", "request": "requests/actionset-echo-message.req", "response": "responses/actionset-echo-message.res", "status": 200 },
+        { "name":"actionset-echo-message-array", "method": "action:echoMessageArray", "request": "requests/actionset-echo-message-array.req", "response": "responses/actionset-echo-message-array.res", "status": 200 },
+        { "name":"actionset-echo-string-array", "method": "action:echoStringArray", "request": "requests/actionset-echo-string-array.req", "response": "responses/actionset-echo-string-array.res", "status": 200 },
+        { "name":"actionset-echo-string-map", "method": "action:echoStringMap", "request": "requests/actionset-echo-string-map.req", "response": "responses/actionset-echo-string-map.res", "status": 200 },
+        { "name":"actionset-echo-typeref-url", "method": "action:echoTyperefUrl", "request": "requests/actionset-echo-typeref-url.req", "response": "responses/actionset-echo-typeref-url.res", "status": 200 },
+        { "name":"actionset-echo-primitive-union", "method": "action:echoPrimitiveUnion", "request": "requests/actionset-echo-primitive-union.req", "response": "responses/actionset-echo-primitive-union.res", "status": 200 },
+        { "name":"actionset-echo-complex-types-union", "method": "action:echoComplexTypesUnion", "request": "requests/actionset-echo-complex-types-union.req", "response": "responses/actionset-echo-complex-types-union.res", "status": 200 },
+        { "name":"actionset-empty-response", "method": "action:emptyResponse", "request": "requests/actionset-empty-response.req", "response": "responses/actionset-empty-response.res", "status": 200 },
+        { "name":"actionset-multiple-inputs", "method": "action:multipleInputs", "request": "requests/actionset-multiple-inputs.req", "response": "responses/actionset-multiple-inputs.res", "status": 200 },
+        { "name":"actionset-multiple-inputs-no-optional", "method": "action:multipleInputs", "request": "requests/actionset-multiple-inputs-no-optional.req", "response": "responses/actionset-multiple-inputs-no-optional.res", "status": 200 }
+      ]
+    },
+    {
+      "name": "keywithunion",
+      "restspec": "restspecs/testsuite.keywithunion.keywithunion.restspec.json",
+      "snapshot": "snapshots/testsuite.keywithunion.keywithunion.snapshot.json",
+      "operations": [
+        { "name":"keywithunion-get", "method": "get", "request": "requests/keywithunion-get.req", "response": "responses/keywithunion-get.res", "status": 200 }
+      ]
+    },
+    {
+      "name": "params",
+      "restspec": "restspecs/testsuite.params.restspec.json",
+      "snapshot": "snapshots/testsuite.params.snapshot.json",
+      "operations": [
+        { "name":"params-get-with-queryparams", "method": "get", "request": "requests/params-get-with-queryparams.req", "response": "responses/params-get-with-queryparams.res", "status": 200 }
+      ]
+    },
+    {
+      "name": "collectionTyperef",
+      "restspec": "restspecs/testsuite.typerefs.collectionTyperef.restspec.json",
+      "snapshot": "snapshots/testsuite.typerefs.collectionTyperef.snapshot.json",
+      "operations": [
+        { "name":"collection-typeref-get", "method": "get", "request": "requests/collection-typeref-get.req", "response": "responses/collection-typeref-get.res", "status": 200 }
+      ]
+    },
+    {
+      "name": "associationTyperef",
+      "restspec": "restspecs/testsuite.typerefs.associationTyperef.restspec.json",
+      "snapshot": "snapshots/testsuite.typerefs.associationTyperef.snapshot.json",
+      "operations": [
+        { "name":"association-typeref-get", "method": "get", "request": "requests/association-typeref-get.req", "response": "responses/association-typeref-get.res", "status": 200 }
+      ]
+    }
+  ]
+}

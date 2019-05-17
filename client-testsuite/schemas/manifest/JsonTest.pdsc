@@ -1,0 +1,8 @@
+{
+  "type" : "record",
+  "name" : "JsonTest",
+  "namespace": "manifest",
+  "fields" : [
+    { "name" : "data",   "type" : "string" }
+  ]
+}

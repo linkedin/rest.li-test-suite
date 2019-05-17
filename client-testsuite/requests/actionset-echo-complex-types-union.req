@@ -1,0 +1,13 @@
+POST /actionSet?action=echoComplexTypesUnion HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+X-RestLi-Method: action
+X-RestLi-Protocol-Version: 1.0.0
+
+{
+  "complexTypesUnion" : {
+    "complexTypeUnion" : {
+      "testsuite.Fruits" : "APPLE"
+    }
+  }
+}

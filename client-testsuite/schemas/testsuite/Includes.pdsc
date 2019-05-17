@@ -1,0 +1,9 @@
+{
+  "type" : "record",
+  "name" : "Includes",
+  "namespace": "testsuite",
+  "fields" : [
+    { "name" : "include", "type" : "Include" },
+    { "name" : "includeWithInclude", "type" : "IncludeWithInclude" }
+  ]
+}

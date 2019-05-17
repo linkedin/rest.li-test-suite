@@ -1,0 +1,10 @@
+{
+  "type" : "typeref",
+  "name" : "TyperefUnion",
+  "namespace" : "testsuite",
+  "ref" : [
+    "string",
+    "int",
+    "long"
+  ]
+}

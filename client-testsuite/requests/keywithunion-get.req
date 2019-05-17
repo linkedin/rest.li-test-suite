@@ -1,0 +1,5 @@
+GET /keywithunion/$params.param1=param1&$params.param2=5&union.testsuite~2Ecomplexkey~2EComplexKey.part1=one&union.testsuite~2Ecomplexkey~2EComplexKey.part2=2&union.testsuite~2Ecomplexkey~2EComplexKey.part3=APPLE HTTP/1.1
+Accept: application/json
+X-RestLi-Protocol-Version: 1.0.0
+
+

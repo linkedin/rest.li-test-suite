@@ -1,0 +1,5 @@
+GET /association/part1=two&part2=3&part3=ORANGE HTTP/1.1
+Accept: application/json
+X-RestLi-Protocol-Version: 1.0.0
+
+

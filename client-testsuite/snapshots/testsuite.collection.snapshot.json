@@ -1,0 +1,175 @@
+{
+  "models" : [ {
+    "type" : "record",
+    "name" : "Message",
+    "namespace" : "testsuite",
+    "fields" : [ {
+      "name" : "id",
+      "type" : "long",
+      "optional" : true
+    }, {
+      "name" : "message",
+      "type" : "string"
+    } ]
+  }, {
+    "type" : "enum",
+    "name" : "Fruits",
+    "namespace" : "testsuite",
+    "symbols" : [ "APPLE", "ORANGE" ]
+  }, {
+    "type" : "fixed",
+    "name" : "Fixed5",
+    "namespace" : "testsuite",
+    "size" : 5
+  }, {
+    "type" : "record",
+    "name" : "PrimitiveField",
+    "namespace" : "testsuite",
+    "fields" : [ {
+      "name" : "integer",
+      "type" : "int"
+    } ]
+  }, {
+    "type" : "record",
+    "name" : "Optionals",
+    "namespace" : "testsuite",
+    "fields" : [ {
+      "name" : "optionalInteger",
+      "type" : "int",
+      "optional" : true
+    }, {
+      "name" : "optionalLong",
+      "type" : "long",
+      "optional" : true
+    }, {
+      "name" : "optionalFloat",
+      "type" : "float",
+      "optional" : true
+    }, {
+      "name" : "optionalDouble",
+      "type" : "double",
+      "optional" : true
+    }, {
+      "name" : "optionalBytes",
+      "type" : "bytes",
+      "optional" : true
+    }, {
+      "name" : "optionalString",
+      "type" : "string",
+      "optional" : true
+    }, {
+      "name" : "optionalEnum",
+      "type" : "Fruits",
+      "optional" : true
+    }, {
+      "name" : "optionalFixed",
+      "type" : "Fixed5",
+      "optional" : true
+    }, {
+      "name" : "optionalRecord",
+      "type" : "PrimitiveField",
+      "optional" : true
+    }, {
+      "name" : "optionalArray",
+      "type" : {
+        "type" : "array",
+        "items" : "int"
+      },
+      "optional" : true
+    }, {
+      "name" : "optionalMap",
+      "type" : {
+        "type" : "map",
+        "values" : "int"
+      },
+      "optional" : true
+    }, {
+      "name" : "optionalUnion",
+      "type" : [ "null", "boolean", "int", "long", "float", "double", "bytes", "string" ],
+      "optional" : true
+    } ]
+  } ],
+  "schema" : {
+    "name" : "collection",
+    "namespace" : "testsuite",
+    "path" : "/collection",
+    "schema" : "testsuite.Message",
+    "doc" : "generated from: testsuite.CollectionResource",
+    "collection" : {
+      "identifier" : {
+        "name" : "collectionId",
+        "type" : "long"
+      },
+      "supports" : [ "batch_create", "batch_delete", "batch_get", "batch_partial_update", "batch_update", "create", "delete", "get", "partial_update", "update" ],
+      "methods" : [ {
+        "method" : "create"
+      }, {
+        "method" : "get"
+      }, {
+        "method" : "update"
+      }, {
+        "method" : "partial_update"
+      }, {
+        "method" : "delete"
+      }, {
+        "method" : "batch_create"
+      }, {
+        "method" : "batch_get"
+      }, {
+        "method" : "batch_update"
+      }, {
+        "method" : "batch_partial_update"
+      }, {
+        "method" : "batch_delete"
+      } ],
+      "finders" : [ {
+        "name" : "search",
+        "parameters" : [ {
+          "name" : "keyword",
+          "type" : "string"
+        } ],
+        "metadata" : {
+          "type" : "testsuite.Optionals"
+        }
+      } ],
+      "entity" : {
+        "path" : "/collection/{collectionId}",
+        "subresources" : [ {
+          "name" : "subcollection",
+          "namespace" : "testsuite.collectionsubresources",
+          "path" : "/collection/{collectionId}/subcollection",
+          "schema" : "testsuite.Message",
+          "doc" : "generated from: testsuite.collectionsubresources.CollectionSubResource",
+          "collection" : {
+            "identifier" : {
+              "name" : "subcollectionId",
+              "type" : "long"
+            },
+            "supports" : [ "get" ],
+            "methods" : [ {
+              "method" : "get"
+            } ],
+            "entity" : {
+              "path" : "/collection/{collectionId}/subcollection/{subcollectionId}"
+            }
+          }
+        }, {
+          "name" : "subsimple",
+          "namespace" : "testsuite.collectionsubresources",
+          "path" : "/collection/{collectionId}/subsimple",
+          "schema" : "testsuite.Message",
+          "doc" : "generated from: testsuite.collectionsubresources.SimpleSubResource",
+          "simple" : {
+            "supports" : [ "get" ],
+            "methods" : [ {
+              "method" : "get"
+            } ],
+            "entity" : {
+              "path" : "/collection/{collectionId}/subsimple"
+            }
+          }
+        } ]
+      }
+    }
+  }
+}

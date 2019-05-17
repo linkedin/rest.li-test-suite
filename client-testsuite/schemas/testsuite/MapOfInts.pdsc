@@ -1,0 +1,13 @@
+{ "type": "record",
+  "name": "MapOfInts",
+  "namespace": "testsuite",
+  "fields": [
+    {
+      "name": "mapOfInts",
+      "type": {
+        "type": "map",
+        "values": "int"
+      }
+    }
+  ]
+}

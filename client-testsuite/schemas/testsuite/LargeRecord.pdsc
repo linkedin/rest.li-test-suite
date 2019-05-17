@@ -1,0 +1,13 @@
+{
+  "type" : "record",
+  "name" : "LargeRecord",
+  "namespace": "testsuite",
+  "fields" : [
+    { "name" : "key", "type": "testsuite.complexkey.ComplexKey" },
+    { "name" : "message", "type": "testsuite.Message" },
+
+    { "name" : "optionalArray",   "type" : { "type" : "array", "items" : "int" }, "optional": true },
+    { "name" : "optionalMap",     "type" : { "type" : "map", "values" : "int" }, "optional": true },
+    { "name" : "optionalUnion",   "type" : [ "null", "boolean", "int", "long", "float", "double", "bytes", "string" ], "optional": true }
+  ]
+}

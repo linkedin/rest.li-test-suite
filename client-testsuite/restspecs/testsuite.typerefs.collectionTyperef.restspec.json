@@ -1,0 +1,20 @@
+{
+  "name" : "collectionTyperef",
+  "namespace" : "testsuite.typerefs",
+  "path" : "/collectionTyperef",
+  "schema" : "testsuite.Message",
+  "doc" : "generated from: testsuite.typerefs.CollectionTyperefResource",
+  "collection" : {
+    "identifier" : {
+      "name" : "collectionTyperefId",
+      "type" : "testsuite.Url"
+    },
+    "supports" : [ "get" ],
+    "methods" : [ {
+      "method" : "get"
+    } ],
+    "entity" : {
+      "path" : "/collectionTyperef/{collectionTyperefId}"
+    }
+  }
+}

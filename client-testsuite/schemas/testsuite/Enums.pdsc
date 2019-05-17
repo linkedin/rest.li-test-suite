@@ -1,0 +1,10 @@
+{
+  "type" : "record",
+  "name" : "Enums",
+  "namespace": "testsuite",
+  "fields" : [
+    { "name" : "fruits", "type" : "Fruits" },
+    { "name" : "enumWithProps", "type" : "EnumWithProps" },
+    { "name" : "enumWithPropsAlias", "type" : "EnumWithPropsAlias" }
+  ]
+}

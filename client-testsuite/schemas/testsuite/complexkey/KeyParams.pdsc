@@ -1,0 +1,9 @@
+{
+  "type" : "record",
+  "name" : "KeyParams",
+  "namespace": "testsuite.complexkey",
+  "fields" : [
+    { "name" : "param1", "type": "string" },
+    { "name" : "param2", "type": "long", "optional": true }
+  ]
+}

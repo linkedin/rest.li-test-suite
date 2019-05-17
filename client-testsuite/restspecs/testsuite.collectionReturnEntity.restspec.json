@@ -1,0 +1,23 @@
+{
+  "name" : "collectionReturnEntity",
+  "namespace" : "testsuite",
+  "path" : "/collectionReturnEntity",
+  "schema" : "testsuite.Message",
+  "doc" : "generated from: testsuite.CollectionReturnEntityResource",
+  "collection" : {
+    "identifier" : {
+      "name" : "collectionReturnEntityId",
+      "type" : "long"
+    },
+    "supports" : [ "create" ],
+    "methods" : [ {
+      "annotations" : {
+        "returnEntity" : { }
+      },
+      "method" : "create"
+    } ],
+    "entity" : {
+      "path" : "/collectionReturnEntity/{collectionReturnEntityId}"
+    }
+  }
+}

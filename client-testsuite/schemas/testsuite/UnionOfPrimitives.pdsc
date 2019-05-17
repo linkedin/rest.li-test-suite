@@ -1,0 +1,10 @@
+{ "type": "record",
+  "name": "UnionOfPrimitives",
+  "namespace": "testsuite",
+  "fields": [
+    {
+      "name": "primitivesUnion",
+      "type": [ "null", "boolean", "int", "long", "float", "double", "bytes", "string" ]
+    }
+  ]
+}

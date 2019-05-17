@@ -1,0 +1,6 @@
+{
+  "type" : "typeref",
+  "name" : "Url",
+  "namespace": "testsuite",
+  "ref" : "string"
+}

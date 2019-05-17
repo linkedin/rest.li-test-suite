@@ -1,0 +1,13 @@
+{
+  "type" : "record",
+  "name" : "WireProtocolOperationTest",
+  "namespace": "manifest",
+  "fields" : [
+    { "name" : "name",   "type" : "string" },
+    { "name" : "method",   "type" : "string" },
+    { "name" : "request",   "type" : "string" },
+    { "name" : "response",   "type" : "string" },
+    { "name" : "status",   "type" : "int" },
+    { "name" : "errorMessage",   "type" : "string", "optional": true }
+  ]
+}

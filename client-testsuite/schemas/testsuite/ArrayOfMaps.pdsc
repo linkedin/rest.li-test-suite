@@ -1,0 +1,16 @@
+{ "type": "record",
+  "name": "ArrayOfMaps",
+  "namespace": "testsuite",
+  "fields": [
+    {
+      "name": "arrayOfMaps",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "map",
+          "values": "int"
+        }
+      }
+    }
+  ]
+}

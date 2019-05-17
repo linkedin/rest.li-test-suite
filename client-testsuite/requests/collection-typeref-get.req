@@ -1,0 +1,5 @@
+GET /collectionTyperef/http%3A%2F%2Frest.li HTTP/1.1
+Accept: application/json
+X-RestLi-Protocol-Version: 1.0.0
+
+

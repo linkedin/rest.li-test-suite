@@ -1,0 +1,6 @@
+{
+  "type" : "fixed",
+  "name" : "Fixed5",
+  "namespace": "testsuite",
+  "size" : 5
+}

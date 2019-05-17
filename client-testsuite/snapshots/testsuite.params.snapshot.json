@@ -1,0 +1,99 @@
+{
+  "models" : [ {
+    "type" : "record",
+    "name" : "Message",
+    "namespace" : "testsuite",
+    "fields" : [ {
+      "name" : "id",
+      "type" : "long",
+      "optional" : true
+    }, {
+      "name" : "message",
+      "type" : "string"
+    } ]
+  }, {
+    "type" : "record",
+    "name" : "UnionOfPrimitives",
+    "namespace" : "testsuite",
+    "fields" : [ {
+      "name" : "primitivesUnion",
+      "type" : [ "null", "boolean", "int", "long", "float", "double", "bytes", "string" ]
+    } ]
+  }, {
+    "type" : "enum",
+    "name" : "Fruits",
+    "namespace" : "testsuite",
+    "symbols" : [ "APPLE", "ORANGE" ]
+  }, {
+    "type" : "record",
+    "name" : "UnionOfComplexTypes",
+    "namespace" : "testsuite",
+    "fields" : [ {
+      "name" : "complexTypeUnion",
+      "type" : [ "Fruits", {
+        "type" : "array",
+        "items" : {
+          "type" : "map",
+          "values" : "int"
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "typeref",
+    "name" : "Url",
+    "namespace" : "testsuite",
+    "ref" : "string"
+  } ],
+  "schema" : {
+    "name" : "params",
+    "namespace" : "testsuite",
+    "path" : "/params",
+    "schema" : "testsuite.Message",
+    "doc" : "generated from: testsuite.ParamsResource",
+    "collection" : {
+      "identifier" : {
+        "name" : "paramsId",
+        "type" : "long"
+      },
+      "supports" : [ "get" ],
+      "methods" : [ {
+        "method" : "get",
+        "parameters" : [ {
+          "name" : "int",
+          "type" : "int"
+        }, {
+          "name" : "string",
+          "type" : "string"
+        }, {
+          "name" : "long",
+          "type" : "long"
+        }, {
+          "name" : "stringArray",
+          "type" : "{ \"type\" : \"array\", \"items\" : \"string\" }"
+        }, {
+          "name" : "messageArray",
+          "type" : "{ \"type\" : \"array\", \"items\" : \"testsuite.Message\" }"
+        }, {
+          "name" : "stringMap",
+          "type" : "{ \"type\" : \"map\", \"values\" : \"string\" }"
+        }, {
+          "name" : "primitiveUnion",
+          "type" : "testsuite.UnionOfPrimitives"
+        }, {
+          "name" : "complexTypesUnion",
+          "type" : "testsuite.UnionOfComplexTypes"
+        }, {
+          "name" : "optionalString",
+          "type" : "string",
+          "optional" : true
+        }, {
+          "name" : "urlTyperef",
+          "type" : "testsuite.Url"
+        } ]
+      } ],
+      "entity" : {
+        "path" : "/params/{paramsId}"
+      }
+    }
+  }
+}

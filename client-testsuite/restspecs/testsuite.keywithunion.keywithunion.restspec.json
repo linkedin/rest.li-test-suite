@@ -1,0 +1,21 @@
+{
+  "name" : "keywithunion",
+  "namespace" : "testsuite.keywithunion",
+  "path" : "/keywithunion",
+  "schema" : "testsuite.LargeRecord",
+  "doc" : "generated from: testsuite.keywithunion.KeyWithUnionResource",
+  "collection" : {
+    "identifier" : {
+      "name" : "keywithunionId",
+      "type" : "testsuite.complexkey.KeyWithUnion",
+      "params" : "testsuite.complexkey.KeyParams"
+    },
+    "supports" : [ "get" ],
+    "methods" : [ {
+      "method" : "get"
+    } ],
+    "entity" : {
+      "path" : "/keywithunion/{keywithunionId}"
+    }
+  }
+}

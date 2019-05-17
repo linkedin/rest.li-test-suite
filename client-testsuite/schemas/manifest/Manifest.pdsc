@@ -1,0 +1,10 @@
+{
+  "type" : "record",
+  "name" : "Manifest",
+  "namespace": "manifest",
+  "fields" : [
+    { "name" : "jsonTestData",   "type" : { "type" : "array", "items" : "JsonTest" } },
+    { "name" : "schemaTestData",   "type" : { "type" : "array", "items" : "SchemaTest" } },
+    { "name" : "wireProtocolTestData",   "type" : { "type" : "array", "items" : "WireProtocolTest" } }
+  ]
+}

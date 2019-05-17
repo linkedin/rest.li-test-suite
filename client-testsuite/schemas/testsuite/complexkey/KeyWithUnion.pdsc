@@ -1,0 +1,8 @@
+{
+  "type" : "record",
+  "name" : "KeyWithUnion",
+  "namespace": "testsuite.complexkey",
+  "fields" : [
+    { "name" : "union", "type": [ "ComplexKey", "string" ] }
+  ]
+}

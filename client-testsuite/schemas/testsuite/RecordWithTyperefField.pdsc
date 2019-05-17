@@ -1,0 +1,8 @@
+{
+  "type" : "record",
+  "name" : "RecordWithTyperefField",
+  "namespace" : "testsuite",
+  "fields" : [
+    {"name" : "message", "type" : "TyperefMessage"}
+  ]
+}

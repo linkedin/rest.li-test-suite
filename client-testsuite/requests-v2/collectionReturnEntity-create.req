@@ -1,0 +1,9 @@
+POST /collectionReturnEntity HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+X-RestLi-Method: create
+X-RestLi-Protocol-Version: 2.0.0
+
+{
+  "message" : "test message"
+}

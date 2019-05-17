@@ -1,0 +1,8 @@
+{
+  "type" : "record",
+  "name" : "PrimitiveField",
+  "namespace": "testsuite",
+  "fields" : [
+    { "name" : "integer", "type" : "int" }
+  ]
+}

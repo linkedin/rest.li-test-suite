@@ -1,0 +1,17 @@
+{ "type": "record",
+  "name": "RecordWithProps",
+  "namespace": "testsuite",
+  "fields": [
+    {
+      "name": "integer",
+      "type": "int",
+      "doc": "documentation",
+      "default": 3,
+      "optional": true,
+      "order": "ignore",
+      "prop1": "xx",
+      "prop2": "yy",
+      "aliases": [ "int1", "int2" ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "type": "fixed",
+  "name": "MD5",
+  "namespace": "testsuite",
+  "size": 16,
+  "aliases": [ "m1", "m2" ]
+}
