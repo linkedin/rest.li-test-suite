@@ -99,8 +99,8 @@
     },
     {
       "name": "simple",
-      "restspec": "restspecs/simple.restspec.json",
-      "snapshot": "snapshots/simple.snapshot.json",
+      "restspec": "restspecs/testsuite.simple.restspec.json",
+      "snapshot": "snapshots/testsuite.simple.snapshot.json",
       "operations": [
         { "name":"simple-get", "method": "get", "request": "requests/simple-get.req", "response": "responses/simple-get.res", "status": 200 },
         { "name":"simple-update", "method": "update", "request": "requests/simple-update.req", "response": "responses/simple-update.res", "status": 204 },
