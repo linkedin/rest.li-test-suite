@@ -1,5 +1,5 @@
 HTTP/1.1 201 Created
-Content-Length: 26
+Content-Length: 32
 Content-Type: application/json
 Location: /collectionReturnEntity/1
 X-LinkedIn-Id: 1
