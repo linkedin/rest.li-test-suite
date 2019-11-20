@@ -1,5 +1,5 @@
 HTTP/1.1 400 Bad Request
-Content-Length: 4130
+Content-Length: 4173
 Content-Type: application/json
 X-LinkedIn-Error-Response: true
 X-RestLi-Protocol-Version: 1.0.0

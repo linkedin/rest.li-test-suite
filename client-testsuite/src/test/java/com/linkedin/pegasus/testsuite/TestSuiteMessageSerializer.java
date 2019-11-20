@@ -91,13 +91,14 @@ public class TestSuiteMessageSerializer extends DefaultMessageSerializer
     RestResponseBuilder builder = res.builder();
     Map<String, String> headers = new HashMap<String, String>(builder.getHeaders());
     headers.remove("Server");
-    builder.setHeaders(headers);
 
     if(res.getEntity().length() > 0)
     {
       builder.setEntity(CODEC.mapToBytes(DataMapUtils.readMap(res)));
     }
 
+    headers.put("Content-Length", Integer.toString(builder.getEntity().length()));
+    builder.setHeaders(headers);
     return builder.build();
   }
 
