@@ -1,5 +1,6 @@
 package com.linkedin.pegasus.test;
 
+import com.linkedin.data.ByteString;
 import com.linkedin.data.template.StringArray;
 import com.linkedin.data.template.StringMap;
 import com.linkedin.pegasus.testsuite.RequestResponseTestCases;
@@ -15,6 +16,8 @@ import com.linkedin.restli.common.LinkArray;
 import com.linkedin.restli.common.UpdateStatus;
 import java.io.File;
 import java.lang.reflect.Method;
+import java.util.Collections;
+import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -40,17 +43,20 @@ public class TestRestClientWithManualAssertions extends StandardTestSuiteBase
 {
   private final static String EXCEPTION_CLASS = "com.linkedin.restli.server.RestLiServiceException";
 
+  public static final String V1 = "v1";
+  public static final String V2 = "v2";
+
   public TestRestClientWithManualAssertions() throws Exception
   {
-    super(System.getProperty("test.projectDir"));
+    super("/Users/pchesnai/code/personal/go-restli/internal/tests/rest.li-test-suite/client-testsuite/");
   }
 
   @DataProvider(name = "dp")
   public Object[][] responseNames(Method m) throws Exception{
-    Object[][] names =  new Object[2][1];
-    names[0][0] = "v1";
-    names[1][0] = "v2";
-    return names;
+    return new Object[][]{
+        {V1},
+        {V2},
+    };
   }
 
   @Test(dataProvider = "dp")
@@ -161,11 +167,11 @@ public class TestRestClientWithManualAssertions extends StandardTestSuiteBase
   public void testCollectionGet404(String version) throws Exception
   {
     Response<ErrorResponse> response = loadError(version, "collection-get-404");
-    if (version.equals("v1"))
+    if (version.equals(V1))
     {
       Assert.assertEquals(response.getHeader("X-LinkedIn-Error-Response"), "true");
     }
-    else if (version.equals("v2"))
+    else if (version.equals(V2))
     {
       Assert.assertEquals(response.getHeader("X-RestLi-Error-Response"), "true");
     }
@@ -176,11 +182,11 @@ public class TestRestClientWithManualAssertions extends StandardTestSuiteBase
   @Test(dataProvider = "dp")
   public void testCollectionUpdate400(String version) throws Exception {
     Response<ErrorResponse> response = loadError(version, "collection-update-400");
-    if (version.equals("v1"))
+    if (version.equals(V1))
     {
       Assert.assertEquals(response.getHeader("X-LinkedIn-Error-Response"), "true");
     }
-    else if (version.equals("v2"))
+    else if (version.equals(V2))
     {
       Assert.assertEquals(response.getHeader("X-RestLi-Error-Response"), "true");
     }
@@ -192,11 +198,11 @@ public class TestRestClientWithManualAssertions extends StandardTestSuiteBase
   @Test(dataProvider = "dp")
   public void testCollectionCreate500(String version) throws Exception {
     Response<ErrorResponse> response = loadError(version, "collection-create-500");
-    if (version.equals("v1"))
+    if (version.equals(V1))
     {
       Assert.assertEquals(response.getHeader("X-LinkedIn-Error-Response"), "true");
     }
-    else if (version.equals("v2"))
+    else if (version.equals(V2))
     {
       Assert.assertEquals(response.getHeader("X-RestLi-Error-Response"), "true");
     }
@@ -206,11 +212,11 @@ public class TestRestClientWithManualAssertions extends StandardTestSuiteBase
   @Test(dataProvider = "dp")
   public void testCollectionCreateErrorDetails(String version) throws Exception {
     Response<ErrorResponse> response = loadError(version, "collection-create-error-details");
-    if (version.equals("v1"))
+    if (version.equals(V1))
     {
       Assert.assertEquals(response.getHeader("X-LinkedIn-Error-Response"), "true");
     }
-    else if (version.equals("v2"))
+    else if (version.equals(V2))
     {
       Assert.assertEquals(response.getHeader("X-RestLi-Error-Response"), "true");
     }
@@ -264,6 +270,106 @@ public class TestRestClientWithManualAssertions extends StandardTestSuiteBase
   }
 
   @Test(dataProvider = "dp")
+  public void testCollectionSearchFinderEmptyString(String version) throws Exception {
+    Response<CollectionResponse<Message>> response = loadResponse(version, "collection-search-finder-empty-string");
+    Assert.assertEquals(response.getStatus(), 200);
+    Assert.assertEquals(response.getEntity().getElements(), Collections.emptyList());
+  }
+
+  @Test(dataProvider = "dp")
+  public void testCollectionComplexFinder(String version) throws Exception {
+    Response<CollectionResponse<Message>> response = loadResponse(version, "collection-complex-finder");
+    Assert.assertEquals(response.getStatus(), 200);
+    List<Message> elements = response.getEntity().getElements();
+    Assert.assertEquals(elements.size(), 1);
+    Assert.assertEquals(elements.get(0).getMessage(), "test message");
+  }
+
+  @Test(dataProvider = "dp")
+  public void testCollectionComplexFinderWithOptional(String version) throws Exception {
+    Response<CollectionResponse<Message>> response = loadResponse(version, "collection-complex-finder-with-optional");
+    Assert.assertEquals(response.getStatus(), 200);
+    List<Message> elements = response.getEntity().getElements();
+    Assert.assertEquals(elements.size(), 1);
+    Assert.assertEquals(elements.get(0).getMessage(), "with optional");
+  }
+
+  @Test(dataProvider = "dp")
+  public void testCollectionComplexFinderWithEmptyBytes(String version) throws Exception {
+    Response<CollectionResponse<Message>> response = loadResponse(version, "collection-complex-finder-with-empty-bytes");
+    Assert.assertEquals(response.getStatus(), 200);
+    List<Message> elements = response.getEntity().getElements();
+    Assert.assertEquals(elements.size(), 1);
+    Assert.assertEquals(elements.get(0).getMessage(), "with empty optional");
+  }
+
+  @Test(dataProvider = "dp")
+  public void testCollectionMapFinder(String version) throws Exception {
+    Response<CollectionResponse<Message>> response = loadResponse(version, "collection-map-finder");
+    Assert.assertEquals(response.getStatus(), 200);
+    List<Message> elements = response.getEntity().getElements();
+    Assert.assertEquals(elements.size(), 2);
+    Assert.assertEquals(elements.get(0).getMessage(), "key");
+    Assert.assertEquals(elements.get(1).getMessage(), "value");
+  }
+
+  @Test(dataProvider = "dp")
+  public void testCollectionMapFinderEmptyMap(String version) throws Exception {
+    Response<CollectionResponse<Message>> response = loadResponse(version, "collection-map-finder-empty-map");
+    if (V1.equals(version)) {
+      // V1 does not support specifying an empty map as a required parameter
+      Assert.assertEquals(response.getStatus(), 400);
+    } else {
+      Assert.assertEquals(response.getStatus(), 200);
+      List<Message> elements = response.getEntity().getElements();
+      Assert.assertEquals(elements.size(), 0);
+    }
+  }
+
+  @Test(dataProvider = "dp")
+  public void testCollectionMapFinderEmptyEntry(String version) throws Exception {
+    Response<CollectionResponse<Message>> response = loadResponse(version, "collection-map-finder-empty-entry");
+    if (V1.equals(version)) {
+      // V1 does not support empty key/values
+      Assert.assertEquals(response.getStatus(), 400);
+    } else {
+      Assert.assertEquals(response.getStatus(), 200);
+      List<Message> elements = response.getEntity().getElements();
+      Assert.assertEquals(elements.get(0).getMessage(), "");
+      Assert.assertEquals(elements.get(1).getMessage(), "");
+    }
+  }
+
+  @Test(dataProvider = "dp")
+  public void testCollectionArrayFinder(String version) throws Exception {
+    Response<CollectionResponse<Message>> response = loadResponse(version, "collection-array-finder");
+    Assert.assertEquals(response.getStatus(), 200);
+    List<Message> elements = response.getEntity().getElements();
+    Assert.assertEquals(elements.size(), 1);
+    Assert.assertEquals(elements.get(0).getMessage(), "another message");
+  }
+
+  @Test(dataProvider = "dp")
+  public void testCollectionArrayFinderMultipleValues(String version) throws Exception {
+    Response<CollectionResponse<Message>> response = loadResponse(version, "collection-array-finder-multiple-values");
+    Assert.assertEquals(response.getStatus(), 200);
+    List<Message> elements = response.getEntity().getElements();
+    Assert.assertEquals(elements.size(), 2);
+    Assert.assertEquals(elements.get(0).getMessage(), "another message");
+    Assert.assertEquals(elements.get(1).getMessage(), "test message");
+  }
+
+  @Test(dataProvider = "dp")
+  public void testCollectionArrayEmptyStringFinder(String version) throws Exception {
+    Response<CollectionResponse<Message>> response = loadResponse(version, "collection-array-finder-empty-string");
+    Assert.assertEquals(response.getStatus(), 200);
+    List<Message> elements = response.getEntity().getElements();
+    Assert.assertEquals(elements.size(), 2);
+    Assert.assertEquals(elements.get(0).getMessage(), "test message");
+    Assert.assertEquals(elements.get(1).getMessage(), "another message");
+  }
+
+  @Test(dataProvider = "dp")
   public void testActionEcho(String version) throws Exception
   {
     Response<String> echoResponse = loadResponse(version,"actionset-echo");
@@ -271,6 +377,12 @@ public class TestRestClientWithManualAssertions extends StandardTestSuiteBase
     Assert.assertEquals(echoResponse.getEntity(), "Is anybody out there?");
   }
 
+  @Test(dataProvider = "dp")
+  public void testActionEchoBytes(String version) throws Exception {
+    Response<ByteString> echoResponse = loadResponse(version, "actionset-echo-bytes");
+    Assert.assertEquals(echoResponse.getStatus(), 200);
+    Assert.assertEquals(echoResponse.getEntity(), ByteString.copy(new byte[]{1, 2, 3, 4}));
+  }
 
   @Test(dataProvider = "dp")
   public void testActionReturnBool(String version) throws Exception
@@ -402,7 +514,7 @@ public class TestRestClientWithManualAssertions extends StandardTestSuiteBase
   {
     Request<T> request;
     String responseFilename;
-    if (version.equals("v1")) {
+    if (version.equals(V1)) {
       request = (Request<T>) RequestResponseTestCases.V1_TEST_CASES.getRequest(name);
       responseFilename = "responses" + File.separator + name + ".res";
     } else {
@@ -416,7 +528,7 @@ public class TestRestClientWithManualAssertions extends StandardTestSuiteBase
   public Response<ErrorResponse> loadError(String version, String name) throws Exception
   {
     String responseFilename;
-    if (version.equals("v1")) {
+    if (version.equals(V1)) {
       responseFilename = "responses" + File.separator + name + ".res";
     } else {
       responseFilename = "responses-v2" + File.separator + name + ".res";

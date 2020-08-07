@@ -1,5 +1,15 @@
 {
   "models" : [ {
+    "type" : "fixed",
+    "name" : "Fixed5",
+    "namespace" : "testsuite",
+    "size" : 5
+  }, {
+    "type" : "enum",
+    "name" : "Fruits",
+    "namespace" : "testsuite",
+    "symbols" : [ "APPLE", "ORANGE" ]
+  }, {
     "type" : "record",
     "name" : "Message",
     "namespace" : "testsuite",
@@ -10,24 +20,6 @@
     }, {
       "name" : "message",
       "type" : "string"
-    } ]
-  }, {
-    "type" : "enum",
-    "name" : "Fruits",
-    "namespace" : "testsuite",
-    "symbols" : [ "APPLE", "ORANGE" ]
-  }, {
-    "type" : "fixed",
-    "name" : "Fixed5",
-    "namespace" : "testsuite",
-    "size" : 5
-  }, {
-    "type" : "record",
-    "name" : "PrimitiveField",
-    "namespace" : "testsuite",
-    "fields" : [ {
-      "name" : "integer",
-      "type" : "int"
     } ]
   }, {
     "type" : "record",
@@ -67,7 +59,14 @@
       "optional" : true
     }, {
       "name" : "optionalRecord",
-      "type" : "PrimitiveField",
+      "type" : {
+        "type" : "record",
+        "name" : "PrimitiveField",
+        "fields" : [ {
+          "name" : "integer",
+          "type" : "int"
+        } ]
+      },
       "optional" : true
     }, {
       "name" : "optionalArray",
@@ -87,6 +86,29 @@
       "name" : "optionalUnion",
       "type" : [ "null", "boolean", "int", "long", "float", "double", "bytes", "string" ],
       "optional" : true
+    } ]
+  }, "testsuite.PrimitiveField", {
+    "type" : "record",
+    "name" : "Primitives",
+    "namespace" : "testsuite",
+    "fields" : [ {
+      "name" : "primitiveInteger",
+      "type" : "int"
+    }, {
+      "name" : "primitiveLong",
+      "type" : "long"
+    }, {
+      "name" : "primitiveFloat",
+      "type" : "float"
+    }, {
+      "name" : "primitiveDouble",
+      "type" : "double"
+    }, {
+      "name" : "primitiveBytes",
+      "type" : "bytes"
+    }, {
+      "name" : "primitiveString",
+      "type" : "string"
     } ]
   } ],
   "schema" : {
@@ -123,6 +145,28 @@
         "method" : "batch_delete"
       } ],
       "finders" : [ {
+        "name" : "array",
+        "parameters" : [ {
+          "name" : "keywords",
+          "type" : "{ \"type\" : \"array\", \"items\" : \"string\" }"
+        } ]
+      }, {
+        "name" : "complex",
+        "parameters" : [ {
+          "name" : "complex",
+          "type" : "testsuite.Primitives"
+        }, {
+          "name" : "optional",
+          "type" : "bytes",
+          "optional" : true
+        } ]
+      }, {
+        "name" : "map",
+        "parameters" : [ {
+          "name" : "params",
+          "type" : "{ \"type\" : \"map\", \"values\" : \"string\" }"
+        } ]
+      }, {
         "name" : "search",
         "parameters" : [ {
           "name" : "keyword",

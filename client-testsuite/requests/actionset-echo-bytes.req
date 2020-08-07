@@ -1,0 +1,9 @@
+POST /actionSet?action=echoBytes HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+X-RestLi-Method: action
+X-RestLi-Protocol-Version: 1.0.0
+
+{
+  "input" : "\u0001\u0002\u0003\u0004"
+}

@@ -16,8 +16,9 @@
 
 package testsuite;
 
-
+import com.linkedin.data.ByteString;
 import com.linkedin.data.DataMap;
+import com.linkedin.data.template.StringMap;
 import com.linkedin.data.transform.DataProcessingException;
 import com.linkedin.restli.common.HttpStatus;
 import com.linkedin.restli.common.PatchRequest;
@@ -32,11 +33,13 @@ import com.linkedin.restli.server.CreateResponse;
 import com.linkedin.restli.server.RestLiServiceException;
 import com.linkedin.restli.server.UpdateResponse;
 import com.linkedin.restli.server.annotations.Finder;
+import com.linkedin.restli.server.annotations.Optional;
 import com.linkedin.restli.server.annotations.QueryParam;
 import com.linkedin.restli.server.annotations.RestLiCollection;
 import com.linkedin.restli.server.resources.CollectionResourceTemplate;
 import com.linkedin.restli.server.util.PatchApplier;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -248,6 +251,11 @@ public class CollectionResource extends CollectionResourceTemplate<Long, Message
   @Finder("search")
   public CollectionResult<Message, Optionals> search(@QueryParam("keyword") String keyword)
   {
+    if ("".equals(keyword))
+    {
+      return new CollectionResult<>(Collections.emptyList());
+    }
+
     ArrayList<Message> results = new ArrayList<Message>();
 
     for(long i = 1l; i < 4l; i++)
@@ -264,5 +272,58 @@ public class CollectionResource extends CollectionResourceTemplate<Long, Message
 
     Optionals metadata = new Optionals().setOptionalLong(5l).setOptionalString("metadata");
     return new CollectionResult<Message, Optionals>(results, results.size(), metadata);
+  }
+
+  @Finder("complex")
+  public List<Message> complex(@QueryParam("complex") Primitives complex,
+      @Optional @QueryParam("optional") ByteString optional) {
+    Message message = new Message().setId(0);
+
+    if (optional != null) {
+      if (optional.length() == 0) {
+        message.setMessage("with empty optional");
+      } else {
+        message.setMessage("with optional");
+      }
+    } else {
+      message.setMessage(complex.getPrimitiveString());
+    }
+
+    return Collections.singletonList(message);
+  }
+
+  @Finder("array")
+  public List<Message> array(@QueryParam("keywords") String[] keywords) {
+    List<Message> results = new ArrayList<>();
+
+    for (String keyword : keywords) {
+      for (long i = 1l; i < 4l; i++) {
+        Message message = get(i);
+        if (message != null) {
+          if (message.getMessage().contains(keyword)) {
+            results.add(message);
+          }
+        }
+      }
+    }
+
+    return results;
+  }
+
+  @Finder("map")
+  public List<Message> map(@QueryParam("params") StringMap params) {
+    List<Message> messages = new ArrayList<>();
+
+    for (Map.Entry<String, String> entry : params.entrySet()) {
+      messages.add(new Message()
+          .setId(messages.size())
+          .setMessage(entry.getKey()));
+
+      messages.add(new Message()
+          .setId(messages.size())
+          .setMessage(entry.getValue()));
+    }
+
+    return messages;
   }
 }

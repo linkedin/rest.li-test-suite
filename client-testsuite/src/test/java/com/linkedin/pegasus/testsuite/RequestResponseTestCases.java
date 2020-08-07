@@ -17,6 +17,7 @@
 package com.linkedin.pegasus.testsuite;
 
 
+import com.linkedin.data.ByteString;
 import com.linkedin.data.template.StringArray;
 import com.linkedin.data.template.StringMap;
 import com.linkedin.restli.client.ProtocolVersionOption;
@@ -27,6 +28,8 @@ import com.linkedin.restli.client.util.PatchGenerator;
 import com.linkedin.restli.common.ComplexResourceKey;
 import com.linkedin.restli.common.CompoundKey;
 import com.linkedin.restli.common.PatchRequest;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -46,6 +49,7 @@ import testsuite.Message;
 import testsuite.MessageArray;
 import testsuite.ParamsBuilders;
 import testsuite.ParamsRequestBuilders;
+import testsuite.Primitives;
 import testsuite.SimpleBuilders;
 import testsuite.SimpleRequestBuilders;
 import testsuite.UnionOfComplexTypes;
@@ -174,6 +178,56 @@ public class RequestResponseTestCases
     builtRequests.put("collection-search-finder",
                       new CollectionRequestBuilders(_options).findBySearch().keywordParam("message").build());
 
+    builtRequests.put("collection-search-finder-empty-string",
+        new CollectionRequestBuilders(_options).findBySearch().keywordParam("").build());
+
+    builtRequests.put("collection-complex-finder",
+        new CollectionRequestBuilders(_options).findByComplex()
+            .complexParam(new Primitives().setPrimitiveString("test message"))
+            .build());
+
+    builtRequests.put("collection-complex-finder-with-optional",
+        new CollectionRequestBuilders(_options).findByComplex()
+            .complexParam(new Primitives().setPrimitiveString("test message"))
+            .optionalParam(ByteString.copy(new byte[]{1, 2, 3}))
+            .build());
+
+    builtRequests.put("collection-complex-finder-with-empty-bytes",
+        new CollectionRequestBuilders(_options).findByComplex()
+            .complexParam(new Primitives().setPrimitiveString("test message"))
+            .optionalParam(ByteString.copy(new byte[0]))
+            .build());
+
+    builtRequests.put("collection-map-finder",
+        new CollectionRequestBuilders(_options).findByMap()
+            .paramsParam(new StringMap(Collections.singletonMap("key", "value")))
+            .build());
+
+    builtRequests.put("collection-map-finder-empty-map",
+        new CollectionRequestBuilders(_options).findByMap()
+            .paramsParam(new StringMap())
+            .build());
+
+    builtRequests.put("collection-map-finder-empty-entry",
+        new CollectionRequestBuilders(_options).findByMap()
+            .paramsParam(new StringMap(Collections.singletonMap("", "")))
+            .build());
+
+    builtRequests.put("collection-array-finder",
+        new CollectionRequestBuilders(_options).findByArray()
+            .keywordsParam(new StringArray(Collections.singletonList("another")))
+            .build());
+
+    builtRequests.put("collection-array-finder-multiple-values",
+        new CollectionRequestBuilders(_options).findByArray()
+            .keywordsParam(new StringArray(Arrays.asList("another", "test")))
+            .build());
+
+    builtRequests.put("collection-array-finder-empty-string",
+        new CollectionRequestBuilders(_options).findByArray()
+            .keywordsParam(new StringArray(Collections.singletonList("")))
+            .build());
+
     ComplexKey complexKey = new ComplexKey().setPart1("one").setPart2(2l).setPart3(Fruits.APPLE);
     KeyParams keyParams = new KeyParams().setParam1("param1").setParam2(5l);
     ComplexResourceKey<ComplexKey, KeyParams> resourceKey = new ComplexResourceKey<ComplexKey, KeyParams>(complexKey,
@@ -273,6 +327,11 @@ public class RequestResponseTestCases
 
     builtRequests.put("actionset-echo",
                       new ActionSetRequestBuilders(_options).actionEcho().inputParam("Is anybody out there?").build());
+
+    builtRequests.put("actionset-echo-bytes",
+        new ActionSetRequestBuilders(_options).actionEchoBytes()
+            .inputParam(ByteString.copy(new byte[]{1, 2, 3, 4}))
+            .build());
 
     builtRequests.put("actionset-return-int", new ActionSetRequestBuilders(_options).actionReturnInt().build());
 

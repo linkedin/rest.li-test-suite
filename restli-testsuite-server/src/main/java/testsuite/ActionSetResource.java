@@ -1,6 +1,7 @@
 package testsuite;
 
 
+import com.linkedin.data.ByteString;
 import com.linkedin.data.template.StringMap;
 import com.linkedin.restli.server.annotations.Action;
 import com.linkedin.restli.server.annotations.ActionParam;
@@ -16,6 +17,12 @@ public class ActionSetResource
 {
   @Action(name="echo")
   public String echo(@ActionParam("input") final String input)
+  {
+    return input;
+  }
+
+  @Action(name="echoBytes")
+  public ByteString echo(@ActionParam("input") final ByteString input)
   {
     return input;
   }

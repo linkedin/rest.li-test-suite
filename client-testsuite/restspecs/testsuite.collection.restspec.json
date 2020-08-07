@@ -32,6 +32,28 @@
       "method" : "batch_delete"
     } ],
     "finders" : [ {
+      "name" : "array",
+      "parameters" : [ {
+        "name" : "keywords",
+        "type" : "{ \"type\" : \"array\", \"items\" : \"string\" }"
+      } ]
+    }, {
+      "name" : "complex",
+      "parameters" : [ {
+        "name" : "complex",
+        "type" : "testsuite.Primitives"
+      }, {
+        "name" : "optional",
+        "type" : "bytes",
+        "optional" : true
+      } ]
+    }, {
+      "name" : "map",
+      "parameters" : [ {
+        "name" : "params",
+        "type" : "{ \"type\" : \"map\", \"values\" : \"string\" }"
+      } ]
+    }, {
       "name" : "search",
       "parameters" : [ {
         "name" : "keyword",

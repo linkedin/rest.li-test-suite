@@ -1,0 +1,6 @@
+out/
+client-testsuite/build/
+restli-testsuite-server/build/
+restli-testsuite-server/src/mainGeneratedRest/
+client-testsuite/src/mainGeneratedDataTemplate/
+client-testsuite/src/mainGeneratedRest/

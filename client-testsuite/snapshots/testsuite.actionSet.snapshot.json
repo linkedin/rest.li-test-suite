@@ -58,6 +58,13 @@
         } ],
         "returns" : "string"
       }, {
+        "name" : "echoBytes",
+        "parameters" : [ {
+          "name" : "input",
+          "type" : "bytes"
+        } ],
+        "returns" : "bytes"
+      }, {
         "name" : "echoComplexTypesUnion",
         "parameters" : [ {
           "name" : "complexTypesUnion",
