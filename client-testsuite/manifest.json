@@ -56,7 +56,20 @@
         { "name":"sub-collection-of-collection-get", "method": "get", "request": "requests/sub-collection-of-collection-get.req", "response": "responses/sub-collection-of-collection-get.res", "status": 200 },
         { "name":"sub-simple-of-collection-get", "method": "get", "request": "requests/sub-simple-of-collection-get.req", "response": "responses/sub-simple-of-collection-get.res", "status": 200 },
 
-        { "name":"collection-search-finder", "method": "finder:search", "request": "requests/collection-search-finder.req", "response": "responses/collection-search-finder.res", "status": 200 }
+        { "name":"collection-search-finder", "method": "finder:search", "request": "requests/collection-search-finder.req", "response": "responses/collection-search-finder.res", "status": 200 },
+        { "name":"collection-search-finder-empty-string", "method": "finder:search", "request": "requests/collection-search-finder-empty-string.req", "response": "responses/collection-search-finder-empty-string.res", "status": 200 },
+
+        { "name":"collection-complex-finder", "method": "finder:complex", "request": "requests/collection-complex-finder.req", "response": "responses/collection-complex-finder.res", "status": 200 },
+        { "name":"collection-complex-finder-with-optional", "method": "finder:complex", "request": "requests/collection-complex-finder-with-optional.req", "response": "responses/collection-complex-finder-with-optional.res", "status": 200 },
+        { "name":"collection-complex-finder-with-empty-bytes", "method": "finder:complex", "request": "requests/collection-complex-finder-with-empty-bytes.req", "response": "responses/collection-complex-finder-with-empty-bytes.res", "status": 200 },
+
+        { "name":"collection-map-finder", "method": "finder:map", "request": "requests/collection-map-finder.req", "response": "responses/collection-map-finder.res", "status": 200 },
+        { "name":"collection-map-finder-empty-map", "method": "finder:map", "request": "requests/collection-map-finder-empty-map.req", "response": "responses/collection-map-finder-empty-map.res", "status": 200 },
+        { "name":"collection-map-finder-empty-entry", "method": "finder:map", "request": "requests/collection-map-finder-empty-entry.req", "response": "responses/collection-map-finder-empty-entry.res", "status": 200 },
+
+        { "name":"collection-array-finder", "method": "finder:array", "request": "requests/collection-array-finder.req", "response": "responses/collection-array-finder.res", "status": 200 },
+        { "name":"collection-array-finder-multiple-values", "method": "finder:array", "request": "requests/collection-array-finder-multiple-values.req", "response": "responses/collection-array-finder-multiple-values.res", "status": 200 },
+        { "name":"collection-array-finder-empty-string", "method": "finder:array", "request": "requests/collection-array-finder-empty-string.req", "response": "responses/collection-array-finder-empty-string.res", "status": 200 }
       ]
     },
     {
@@ -113,6 +126,7 @@
       "snapshot": "snapshots/testsuite.actionSet.snapshot.json",
       "operations": [
         { "name":"actionset-echo", "method": "action:echo", "request": "requests/actionset-echo.req", "response": "responses/actionset-echo.res", "status": 200 },
+        { "name":"actionset-echo-bytes", "method": "action:echo", "request": "requests/actionset-echo-bytes.req", "response": "responses/actionset-echo-bytes.res", "status": 200 },
         { "name":"actionset-return-int", "method": "action:returnInt", "request": "requests/actionset-return-int.req", "response": "responses/actionset-return-int.res", "status": 200 },
         { "name":"actionset-return-bool", "method": "action:returnBool", "request": "requests/actionset-return-bool.req", "response": "responses/actionset-return-bool.res", "status": 200 },
         { "name":"actionset-echo-message", "method": "action:echoMessage", "request": "requests/actionset-echo-message.req", "response": "responses/actionset-echo-message.res", "status": 200 },
