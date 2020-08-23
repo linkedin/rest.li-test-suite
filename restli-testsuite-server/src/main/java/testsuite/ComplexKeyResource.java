@@ -120,11 +120,12 @@ public class ComplexKeyResource extends ComplexKeyResourceTemplate<ComplexKey, K
   public CreateResponse create(LargeRecord entity)
   {
     return new CreateResponse(
-
-        /*new ComplexKey()
-            .setPart1("one")
-            .setPart2(2l)
-            .setPart3(Fruits.APPLE),*/
+        new ComplexResourceKey<ComplexKey, KeyParams>(
+            new ComplexKey()
+                .setPart1("one")
+                .setPart2(2l)
+                .setPart3(Fruits.APPLE),
+            null),
         HttpStatus.S_201_CREATED);
   }
 
