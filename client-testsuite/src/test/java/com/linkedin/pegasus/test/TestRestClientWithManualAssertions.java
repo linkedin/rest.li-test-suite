@@ -9,8 +9,10 @@ import com.linkedin.restli.client.Response;
 import com.linkedin.restli.client.response.BatchKVResponse;
 import com.linkedin.restli.common.BatchResponse;
 import com.linkedin.restli.common.CollectionResponse;
+import com.linkedin.restli.common.ComplexResourceKey;
 import com.linkedin.restli.common.EmptyRecord;
 import com.linkedin.restli.common.ErrorResponse;
+import com.linkedin.restli.common.IdResponse;
 import com.linkedin.restli.common.LinkArray;
 import com.linkedin.restli.common.UpdateStatus;
 import java.io.File;
@@ -24,6 +26,10 @@ import testsuite.Message;
 import testsuite.MessageArray;
 import testsuite.UnionOfComplexTypes;
 import testsuite.UnionOfPrimitives;
+import testsuite.complexkey.ComplexKey;
+import testsuite.complexkey.KeyParams;
+
+
 /**
  * This test suite supplementary to the manifest driven tests run by TestRestClientAgainstStandardTestSuite.
  *
@@ -377,6 +383,17 @@ public class TestRestClientWithManualAssertions extends StandardTestSuiteBase
     Assert.assertEquals(response.getEntity().getKey().getPart2(), Long.valueOf(2l));
     Assert.assertEquals(response.getEntity().getKey().getPart3(), Fruits.APPLE);
     Assert.assertEquals(response.getEntity().getMessage().getMessage(), "test message");
+  }
+
+  @Test(dataProvider = "dp")
+  public void testComplexKeyCreate(String version) throws Exception
+  {
+    Response<IdResponse<ComplexResourceKey<ComplexKey, KeyParams>>> response =
+        loadResponse(version, "complexkey-create");
+    ComplexKey key = response.getEntity().getId().getKey();
+    Assert.assertEquals(key.getPart1(), "one");
+    Assert.assertEquals(key.getPart2(), Long.valueOf(2l));
+    Assert.assertEquals(key.getPart3(), Fruits.APPLE);
   }
 
   @Test(dataProvider = "dp")
